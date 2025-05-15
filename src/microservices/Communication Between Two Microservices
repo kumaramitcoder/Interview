@@ -1,0 +1,52 @@
+In modern Spring Boot development, calling REST APIs is a common task. Choosing the right client—RestTemplate, WebClient, or FeignClient—impacts performance, maintainability, and scalability. Here’s a concise breakdown of all three.
+
+🔹 RestTemplate (Traditional HTTP Client)
+Synchronous and blocking HTTP client.
+Introduced in Spring 3.
+Simple to use for CRUD operations (GET, POST, PUT, DELETE).
+Lacks flexibility for reactive or non-blocking programming.
+
+Example:
+RestTemplate restTemplate = new RestTemplate();
+ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+🔻 Deprecated for future development. Recommended to use WebClient.
+
+🔹 WebClient (Modern Reactive Client)
+Introduced in Spring WebFlux (Spring 5).
+Supports both blocking and non-blocking calls.
+Ideal for reactive programming and asynchronous workflows.
+Enables better performance and scalability in concurrent systems.
+
+Example:
+WebClient webClient = WebClient.create();
+webClient.get()
+ .uri(url)
+ .retrieve()
+ .bodyToMono(String.class)
+ .subscribe(System.out::println);
+✅ Best for new Spring Boot applications, especially with high concurrency.
+
+🔹 FeignClient (Declarative HTTP Client)
+Part of Spring Cloud OpenFeign.
+Makes REST calls using declarative interfaces.
+Simplifies communication between microservices.
+Automatically handles load balancing, fallback, and request mapping.
+
+Example:
+@FeignClient(name = "user-service")
+public interface UserClient {
+ @GetMapping("/users/{id}")
+ User getUser(@PathVariable Long id);
+}
+✅ Great choice for Spring Cloud projects and service-to-service calls.
+
+⚖️ Summary:
+RestTemplate: Simple, synchronous, now outdated.
+
+WebClient: Modern, flexible, reactive, and scalable.
+
+FeignClient: Declarative, clean, built for microservices.
+
+Choose WebClient for reactive apps, FeignClient for microservices, and avoid new development with RestTemplate.
+
+💡 Pro Tip: Use WebClient when performance and scalability matter. Use FeignClient to simplify service integration in Spring Cloud.

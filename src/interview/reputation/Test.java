@@ -1,4 +1,4 @@
-package reputation;
+package interview.reputation;
 
 import java.util.*;
 

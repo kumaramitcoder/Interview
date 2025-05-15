@@ -1,0 +1,26 @@
+1/ Two Pointers
+Use when comparing characters from both ends or navigating inwards.
+
+—Valid Palindrome→https://lnkd.in/evA6W5Nf
+—Reverse Words in a String→https://lnkd.in/e9ezwk4E
+—Longest Palindromic Substring→https://lnkd.in/eS2J9eFn
+
+2/ Sliding Window
+Use for finding substrings with dynamic properties (length, frequency.
+
+—Minimum Window Substring→https://lnkd.in/eCcc5bPW
+—Longest Substring Without Repeating Characters→https://lnkd.in/ekhJ5fPW
+—Longest Substring with At Most K Distinct Characters→https://lnkd.in/ezaxRCdu
+
+3/ Hashmaps
+Use for frequency, lookup, or grouping operations.
+—Group Anagrams→https://lnkd.in/epgUM5R4
+—First Unique Character in a String→https://lnkd.in/eCxxzAD4
+—Valid Anagram→https://lnkd.in/e7CwaydW
+
+4/ String Manipulation
+Use when formatting, parsing, or transforming strings.
+
+—Reverse String→https://lnkd.in/eQWyVC8h
+—String to Integer (atoi→https://lnkd.in/eEwkvS27
+—Count and Say→https://lnkd.in/ez62RhHa
