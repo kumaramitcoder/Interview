@@ -1,0 +1,34 @@
+multiple sorting in Streams APIs. Name & salary
+
+🟣Q)write a Java stream program to sort a list of employees first by name and then by salary, you can combine comparators using the thenComparing method ?
+
+🌳Ans) let's break it down.
+
+generally we use Comparator.comparing() but here we need to sort twice, so we can call thenComparingDouble() .this method can be called multiple times as per the need.
+
+✅️step 1) convert the list to stream.
+
+✅️step 2) call sorted () with Comparator.comparing() with employees name
+
+✅️ step 3)then call thenComparingDouble () with employee salary.
+
+✅️step 4) call Collectors.toList to get the result.
+
+✅️step 5) print the result.
+
+🌳Example:
+ 👇
+
+// Sort by name and then by salary in ascending order
+
+ List<Employee> sortedByNameAndSalaryAsc = employees
+ .stream()
+ .sorted(Comparator
+ .comparing(Employee::getName)
+ .thenComparingDouble(Employee::getSalary))
+ .collect(Collectors.toList());
+
+
+
+ System.out.println("Sorted by Name and Salary (Ascending):");
+ sortedByNameAndSalaryAsc.forEach(System.out::println);

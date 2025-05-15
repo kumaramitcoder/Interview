@@ -1,0 +1,53 @@
+1. Sort an Array Without Using Arrays.sort()
+2. Find Second Largest Number in an Array
+3. Find Duplicate Elements in an Array
+4. Check if Two Strings are Anagrams
+5. Find the Missing Number in a Sequence
+6. Find the First Non-Repeated Character in a String
+7. Find Common Elements in Two Arrays
+8. Count Frequency of Elements Using HashMap
+9. Reverse Words in a Sentence
+10. Find Pairs in Array Whose Sum Equals a Target
+11. Merge Two Sorted Arrays
+12. Convert a List to Set and Vice Versa
+13. Use of ArrayList, HashSet, and HashMap in Code
+14. Remove All White Spaces from a String
+15. Extract Only Digits from an Alphanumeric String
+16. Read Data from Excel Using Apache POI
+17. Capture a Screenshot in Selenium Using Java
+18. Implement Implicit, Explicit, and Fluent Waits
+19. Find All Broken Links on a Webpage
+20. Count Web Elements on a Webpage
+
+========================
+Java Collection :
+   1) Iterator Vs ListIterator
+
+
+🟣Java (Core, Collections, Immutability, Exceptions)
+
+1)Why is String immutable in Java?
+
+2. How to make a class immutable?
+
+3. Can we extend an immutable class?
+
+4. Exception handling – Output of code with multiple catch blocks and finally (custom randomNumber() method).
+
+5. How do you copy a TreeMap to another?
+
+6. How do you add one TreeMap to another?
+
+7. How to get the lowest and last key from a TreeMap?
+
+8. What is the internal data structure used in ArrayList?
+
+9. Check if a string is a palindrome.
+
+10. Check if a string is balanced or unbalanced (include negative scenarios).
+
+11. What is a Functional Interface in Java?
+
+12. Difference between map vs flatMap.
+
+13. Given an interface, how do you call a specific implementing class (like ClassB) in Spring?

@@ -1,0 +1,81 @@
+@Conditional and @ConditionalOnBean
+
+
+When to Use Custom Annotations
+
+Custom annotations should be used when:
+
+✅️Encapsulation: You want to encapsulate repetitive logic, such as logging, validation, or security checks.
+
+✅️Abstraction: Hiding complex configuration details behind simple annotations improves code readability.
+
+
+✅️Reusability: When similar logic is applied across multiple layers or classes, a custom annotation prevents duplication.
+
+
+📌Examples of use cases:
+
+🔹️Custom validation annotations (e.g., @ValidEmail)
+
+🔹️Logging user activities
+
+🔹️Configuring third-party integrations
+
+🔹️Dynamic feature toggles
+
+1️⃣Define the Annotation:
+
+Annotations are defined using the @interface keyword. For example:
+
+🌴Example:
+👇
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import https://lnkd.in/eTE8cM_q;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface CustomAnnotation {
+ String value() default "Default Message";
+}
+
+🔹️@Retention: Determines how long the annotation is retained (e.g., RUNTIME for reflection).
+
+🔹️@Target: Specifies where the annotation can be applied (e.g., methods, fields, classes).
+
+2️⃣Implement Annotation Logic (Optional)
+
+If your annotation triggers specific logic, create an aspect using Spring AOP.
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class CustomAnnotationAspect {
+
+ @Before("@annotation(customAnnotation)")
+ public void beforeMethodExecution(CustomAnnotation customAnnotation) {
+ System.out.println("Custom Annotation Triggered: " + customAnnotation.value());
+ }
+}
+
+3️⃣Apply the Annotation:
+You can now use the custom annotation in your code:
+
+🌴Code snippet:
+👇
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+
+ @CustomAnnotation(value = "Executing custom logic")
+ @GetMapping("/demo")
+ public String demo() {
+ return "Hello, Custom Annotation!";
+ }

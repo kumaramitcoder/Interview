@@ -1,0 +1,84 @@
+𝟭. 𝗙𝘂𝗻𝗱𝗮𝗺𝗲𝗻𝘁𝗮𝗹𝘀 (𝗖𝗼𝗿𝗲 𝗖𝗼𝗻𝗰𝗲𝗽𝘁𝘀)
+
+ • How the web works (DNS, TCP/IP, TLS, HTTP/HTTPS)
+ • Client-Server architecture
+ • REST vs gRPC
+ • Synchronous vs Asynchronous communication
+ • Stateless vs Stateful services
+
+𝟮. 𝗕𝘂𝗶𝗹𝗱𝗶𝗻𝗴 𝗕𝗹𝗼𝗰𝗸𝘀
+
+ • Load Balancers (types, algorithms)
+ • Proxies (forward, reverse, CDN)
+ • API Gateway (rate limiting, auth, request routing)
+ • Web Servers (Nginx, Apache)
+
+𝟯. 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲𝘀
+
+ • SQL vs NoSQL (When to use what)
+ • Indexes & Query Optimization
+ • Normalization/Denormalization
+ • Replication, Sharding, Partitioning
+ • CAP Theorem & PACELC
+ • Transactions, Isolation Levels
+ • Data modeling for large-scale systems
+
+𝟰. 𝗖𝗮𝗰𝗵𝗶𝗻𝗴
+
+ • Why caching matters (reduce latency/load)
+ • Tools: Redis, Memcached
+ • Cache strategies: LRU, LFU, TTL, write-through, write-behind
+ • Cache invalidation strategies
+
+𝟱. 𝗠𝗲𝘀𝘀𝗮𝗴𝗶𝗻𝗴 & 𝗤𝘂𝗲𝘂𝗲𝗶𝗻𝗴 𝗦𝘆𝘀𝘁𝗲𝗺𝘀
+
+ • Message Queues: Kafka, RabbitMQ, SQS
+ • Event-driven architecture
+ • Pub/Sub model
+
+𝟲. 𝗦𝘆𝘀𝘁𝗲𝗺 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝗰𝗮𝘁𝗶𝗼𝗻
+
+ • Service Discovery
+ • API Rate Limiting
+ • Circuit Breaker / Retry Logic
+ • Idempotency
+
+𝟳. 𝗦𝗰𝗮𝗹𝗮𝗯𝗶𝗹𝗶𝘁𝘆 𝗮𝗻𝗱 𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲
+
+ • Horizontal vs Vertical scaling
+ • CDNs and Edge caching
+ • Database bottlenecks and read replicas
+ • Data consistency vs availability
+
+𝟴. 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 𝗕𝗮𝘀𝗶𝗰𝘀
+
+ • Authentication & Authorization (OAuth2, JWT, API Keys)
+ • HTTPS, TLS
+ • Data encryption in transit & at rest
+ • DDOS protection, throttling, rate limiting
+
+𝟵. 𝗛𝗶𝗴𝗵 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗶𝗹𝗶𝘁𝘆 & 𝗙𝗮𝘂𝗹𝘁 𝗧𝗼𝗹𝗲𝗿𝗮𝗻𝗰𝗲
+
+ • Replication
+ • Failover mechanisms
+ • Leader election (e.g., Raft)
+ • Health checks, monitoring, and alerts
+
+𝟭𝟬. 𝗣𝗿𝗮𝗰𝘁𝗶𝗰𝗲 𝗦𝘆𝘀𝘁𝗲𝗺𝘀
+
+You should know how to design:
+
+ • URL Shortener (TinyURL)
+ • Rate Limiter
+ • File Storage (Google Drive)
+ • Notification System
+ • Messaging System (WhatsApp/Slack)
+ • Social media (Facebook/Twitter)
+ • Ride Booking System (Uber)
+
+𝗥𝗲𝘀𝗼𝘂𝗿𝗰𝗲𝘀 𝘂𝘀𝗲𝗱 𝗱𝘂𝗿𝗶𝗻𝗴 𝗽𝗿𝗲𝗽 👇🏻
+1. Concept and coding YT channel
+2. Hello interview YT channel and website.
+3. Awesome HLD git repo
+4. Gaurav sen's YT channel
+5. Alex Xu’s System design interview book.

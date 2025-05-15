@@ -1,0 +1,48 @@
+Day 2 Scenario 2: Ensuring Idempotency in API Calls
+
+
+
+1️⃣Q)Your Order Service receives the same request multiple times due to network issues. How do you prevent duplicate order processing?
+
+✅️Solution:
+
+🔹️Use an Idempotency Key sent by the client.
+
+🔹️Store processed requests in Redis or a database to reject duplicates.
+
+💎Example:
+👇
+if (redis.exists(idempotencyKey)) {
+ return "Duplicate request";
+} else {
+ redis.set(idempotencyKey, "processed", 5, TimeUnit.MINUTES);
+ processOrder();
+}
+
+🔹 Key Concepts: Idempotency Key, Deduplication, Redis, Database Locks.
+
+🟣Scenario 2: Managing Distributed Transactions (Without 2PC)
+
+2️⃣Q)An e-commerce system needs to manage transactions across Order, Payment, and Inventory services. How do you ensure consistency without using Two-Phase Commit (2PC)?
+
+✅️Solution:
+
+🔹️Implement Saga Pattern (Choreography or Orchestration).
+
+🔹️Choreography: Each service listens to events and reacts.
+
+🔹️Orchestration: A central Saga Orchestrator ensures transaction flow.
+
+💎Example:
+👇
+
+@SagaStep
+public void reserveInventory(SagaContext context) {
+ if (inventoryAvailable(context.getOrderId())) {
+ context.sendEvent("inventory_reserved");
+ } else {
+ context.sendEvent("inventory_failed");
+ }
+}
+
+🔹 Key Concepts: Saga Pattern, Event-Driven Architecture, Compensation Transactions.

@@ -1,0 +1,18 @@
+https://newsletter.systemdesigncodex.com/p/5-must-know-deployment-strategies?utm_source=post-email-title&publication_id=2148111&post_id=160170171&utm_campaign=email-post-title&isFreemail=true&r=2vvsg6&triedRedirect=true&utm_medium=email
+
+1 - Blue/Green Deployment : https://newsletter.systemdesigncodex.com/i/160170171/bluegreen-deployment
+Blue/Green deployment is a zero-downtime strategy that uses two identical environments: Blue (live) and Green (staging/next).
+
+
+2 - Canary Deployment : https://newsletter.systemdesigncodex.com/i/160170171/canary-deployment
+Inspired by canary birds in coal mines, canary deployment rolls out new changes to a small subset of users first, allowing you to monitor and validate the new version before a full-scale rollout.
+
+
+3 - A/B Testing : https://newsletter.systemdesigncodex.com/i/160170171/ab-testing
+While not strictly a deployment strategy, A/B testing can be used as part of your release process when you want to compare different variations of a feature and measure which one performs better.
+
+4 - Feature Flag Deployment : https://newsletter.systemdesigncodex.com/i/160170171/feature-flag-deployment
+Feature flags (also known as feature toggles) are a powerful way to deploy code without activating it immediately. Think of them as remote-controlled switches for turning features on or off.
+
+5 - Rolling Deployment : https://newsletter.systemdesigncodex.com/i/160170171/rolling-deployment
+A Rolling Deployment replaces old application versions with new ones incrementally, usually one server or pod at a time. It’s commonly used in Kubernetes, AWS ECS, or traditional VM-based deployments

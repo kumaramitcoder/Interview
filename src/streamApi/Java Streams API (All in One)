@@ -1,0 +1,85 @@
+Java Streams API (All in One) -
+
+Hello All, In continuation to the series of my interview questions, today I’m sharing stream related concepts that can help you ace your technical interviews.
+
+📌Creating Streams : Different ways
+
+💎From Collections :
+
+List<String> list = List.of("a", "b", "c");
+Stream<String> stream = list.stream();
+
+💎From Arrays :
+
+String[] array = {"a", "b", "c"};
+Stream<String> stream = Arrays.stream(array);
+
+💎From Values :
+Stream<String> stream = Stream.of("a", "b", "c");
+
+💎Infinite Streams :
+
+“Stream<Integer> stream = Stream.iterate(0, n -> n + 2); // 0, 2, 4...
+Stream<Double> randoms = Stream.generate(Math::random); // Random numbers
+
+📌Common Stream Operations :
+🌴Intermediate Operations :
+
+🔹️Filter: Select elements based on a condition.
+
+List<Integer> list = List.of(1, 2, 3, 4);
+List<Integer> even = list.stream()
+ .filter(n -> n % 2 == 0)
+ .collect(Collectors.toList())
+
+🔹️Map : Transform elements.
+
+List<String> names = List
+ .of("John", "Jane");
+List<Integer> lengths = names.stream()
+ .map(String::length)
+ .collect(Collectors.toList());
+
+🔹️FlatMap : Flatten nested structures.
+
+List<List<Integer>> nested = List.of(List.of(1, 2), List.of(3, 4));
+List<Integer> flat = nested.stream()
+ .flatMap(List::stream)
+ .collect(Collectors.toList());
+
+🔹️Sorted : Sort elements.
+
+List<Integer> sorted = List.of(3, 1, 2).stream()
+ .sorted()
+ .collect(Collectors.toList());
+
+🔹️Distinct :Remove duplicates.
+
+List<Integer> distinct = List.of(1, 2, 2, 3).stream()
+ .distinct()
+ .collect(Collectors.toList());
+
+🔹️Limit / Skip : Control the size of the stream.
+
+Stream<Integer> limited = Stream.iterate(1, n -> n + 1).limit(5); // First 5
+Stream<Integer> skipped = limited.skip(2); // Skip first 2 elements
+
+📌Terminal Operations :
+🔹️ForEach :Perform an action on each element.
+
+Stream.of("a", "b", "c").forEach(System.out::println);
+
+🔹️Collect :Gather results into a collection.
+
+List<String> list = Stream.of("a", "b", "c").collect(Collectors.toList());
+Set<String> set = Stream.of("a", "b", "c").collect(Collectors.toSet());
+
+🔹️Reduce :Combine elements into a single result.
+
+int sum = Stream.of(1, 2, 3)
+ .reduce(0, Integer::sum); // 6
+
+🔹️FindFirst / FindAny :Retrieve an element.
+
+Optional<Integer> first = Stream.of(1, 2, 3).findFirst();
+Optional<Integer> any = Stream.of(1, 2, 3).findAny();

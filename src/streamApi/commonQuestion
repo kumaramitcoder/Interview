@@ -1,0 +1,13 @@
+14. Find the most repeated string from a list using Java 8 Streams.
+
+15. Get the first 3 employees who joined the organization early.
+
+16. Count the number of employees in each department using Streams.
+
+17. Count the occurrence of a character from a list like Arrays.asList(“Amol”,”Arun”,”Alok”,”Aditya”).
+
+18. Return all duplicate elements from an integer array using Java 8 Streams.
+
+19. Calculate the average salary of all employees.
+
+20. Calculate the average salary per department.

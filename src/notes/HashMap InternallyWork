@@ -1,0 +1,47 @@
+How Does HashMap InternallyWork in Java? (Crack Any Interview with This Guide!) 👨‍💻🚀
+
+If you’re preparing for a Java interview, understanding HashMap’s internal workings is crucial and is one of most asked interview question. Let’s break it down step by step.
+
+🟣What is a HashMap?
+
+A HashMap in Java is part of the java.util package and is used to store key-value pairs. It provides O(1) average time complexity for insert, delete, and get operations, making it one of the most efficient data structures.
+
+🌴Key properties of a HashMap:
+
+🔹️Stores elements in a key-value pair format.
+
+🔹️Allows one null key and multiple null values.
+
+🔹️The null key is always stored at the 0th index in the bucket array.
+
+🔹️It is not synchronized, meaning it is not thread-safe.
+
+🔹️Maintains no order of elements.
+
+🟣Internal Working of HashMap
+
+HashMap uses hashing to store key-value pairs efficiently. Let’s go step by step to understand its internal functioning.
+
+🌴1. Hashing and Bucket Storage
+
+🔹️HashMap internally maintains an array of Node<K, V> (buckets) where each node is a linked list entry.
+
+🔹️When we insert a key-value pair, the key’s hashCode() is calculated.
+
+🔹️This hash value is then converted into an index using the formula:
+
+index = (hashCode) & (n - 1);
+
+where n is the size of the bucket array (initially 16).
+
+🟣2. Handling Collisions
+
+🔹️When multiple keys generate the same index (collision), they are stored in the same bucket as a linked list.
+
+🔹️In Java 8, when the linked list size exceeds 8, it gets converted into a balanced binary tree (Red-Black Tree) to optimize lookup time.
+
+🟣3. Retrieving Values from HashMap
+
+🔹️When calling get(key), HashMap calculates the hashCode and determines the index.
+
+🔹️It then traverses the linked list/tree to find the correct key and return the associated value.

@@ -1,0 +1,23 @@
+Q)You are given a stream of integers. Find the first number greater than 10 using Streams?
+
+🌴Ans) let's break it down.
+
+✅️step 1) convert the list to stream
+
+✅️step 2) call filter() with n-> n >10 for num greater than 10 .
+
+✅️step 3) call findFirst() to get the first n >10 num .
+
+🌴Example :
+👇
+
+List<Integer> numbers = Arrays.asList(5, 8, 11, 3, 15, 9);
+
+
+Optional<Integer> firstNumber = numbers
+ .stream()
+ .filter(n -> n > 10)
+ .findFirst();
+
+
+🟣👉Output: {11}

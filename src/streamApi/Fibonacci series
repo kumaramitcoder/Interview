@@ -1,0 +1,39 @@
+Fibonacci series - using Java-8 streams
+API
+
+Ans) let's break it down
+
+❓️what is Fibonacci series?
+
+✅️The Fibonacci series (or Fibonacci sequence) is a sequence of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence looks like this:
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …
+
+
+🌳Step 1) Limit the number of elements in the stream.
+
+🌳Step 2) Extract the first element (fibonacci number)
+
+🌳 step 3)Print each Fibonacci number
+
+✅️Example:
+👇
+ Stream.iterate(new int[] {0, 1},
+ fib -> new int[] {fib[1], fib[0] + fib[1]})
+ .limit(10)
+ .mapToInt(fib -> fib[0])
+ .forEach(System.out::println);
+
+
+✅️--- Output->
+👇
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34

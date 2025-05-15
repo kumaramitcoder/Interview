@@ -1,0 +1,85 @@
+Apache Kafka Interview Q & A with Spring Boot
+
+🌴Day - 1 :
+
+Apache Kafka is one of the most used distributed event streaming platform used in many applications. questions from this is very frequently asked now a days in all levels of Interview if you mentioned Kafka in your resume. below questions list will help you.
+
+❓️1Q)What is Apache Kafka, and how does it work?
+
+✅️Ans)Apache Kafka is a distributed event streaming platform used for real-time data processing. It works by using producers to send messages to topics, which are stored in brokers and consumed by consumers.
+
+❓️2Q)What is a Kafka broker?
+
+✅️A Kafka broker is a server that stores and manages Kafka topics. It handles read and write requests from clients and ensures data distribution across partitions.
+
+❓️3Q)How do Kafka partitions work?
+
+✅️Kafka topics are split into partitions, allowing parallelism. Each partition is assigned to a broker, and messages within partitions are ordered.
+
+📌Kafka Architecture :
+❓️4Q)Explain Kafka’s producer-consumer model?
+
+✅️Kafka follows a publish-subscribe model where:
+
+🔹️Producers send messages to topics.
+
+🔹️Consumers read messages from topics.
+
+🔹️Messages are distributed across partitions.
+
+❓️Q5)What is a Kafka topic, and how does it function?
+✅️A topic is a logical category for messages. Producers write to topics, and consumers subscribe to them.
+
+❓️Q6)How does Kafka handle fault tolerance?
+✅️Kafka replicates partitions across multiple brokers. If a broker fails, a replica takes over, ensuring data availability
+
+📌Kafka in Spring Boot :
+
+❓️Q7)How do you integrate Kafka with Spring Boot
+
+✅️Add dependencies:
+
+❓️Q8)What is @KafkaListener in Spring Boot, and how does it work?
+✅️It listens to Kafka topics and consumes messages.
+
+🌴Example:
+👇
+@KafkaListener(topics = "test-topic", groupId = "group_id")
+public void listen(String message) {
+ System.out.println("Received: " + message);
+}
+
+❓️Q9)How can you configure a Kafka consumer in Spring Boot?
+✅️spring.kafka.consumer.bootstrap-servers=localhost:9092
+https://lnkd.in/eMWj-HwN
+spring.kafka.consumer.auto-offset-reset=earliest
+
+❓️1) What is Apache Kafka?
+
+❓️2) What are the key components of Kafka?
+
+❓️3)What is a Kafka Topic?
+
+❓️4)What is a Kafka Partition?
+
+❓️5)What is the role of Zookeeper in Kafka?
+
+❓️6)What is a Consumer Group?
+
+❓️7)What is the difference between a Kafka Producer and a Consumer?
+
+❓️8)What is a Kafka Broker?
+
+❓️9)What is the purpose of Kafka Connect?
+
+❓️10)What is Kafka Streams?
+
+❓️11)What is the purpose of Kafka’s log compaction?
+
+❓️12)What is a Kafka MirrorMaker?
+
+❓️13)What is the difference between Kafka and Apache Flink?
+
+❓️14)What is the role of a Kafka Schema Registry?
+
+❓️15)What is the difference between Kafka and Apache Storm?

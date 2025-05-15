@@ -1,0 +1,88 @@
+1️⃣ How do you handle distributed transactions in Microservices?
+
+✅ Solution: Use the Saga Pattern
+
+@Component
+public class OrderSaga {
+ @Transactional
+ public void placeOrder(Order order) {
+ try {
+ paymentService.processPayment(order);
+ inventoryService.reserveStock(order);
+ shippingService.initiateShipping(order);
+ } catch (Exception e) {
+ compensationService.rollback(order);
+ }
+ }
+}
+
+2️⃣ How do you ensure service resiliency in Microservices?
+
+✅ Solution: Use Circuit Breaker (Resilience4j)
+
+@Retry(name = "inventoryService")
+@CircuitBreaker(name = "inventoryService", fallbackMethod = "fallbackResponse")
+public InventoryResponse checkInventory(String productId) {
+ return inventoryClient.getInventory(productId);
+
+3️⃣ How do you secure Spring Boot Microservices?
+
+✅ Solution: Use OAuth2 and JWT
+
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+ @Override
+ protected void configure(HttpSecurity http) throws Exception {
+ http.authorizeRequests()
+ .antMatchers("/admin/**").hasRole("ADMIN")
+ .anyRequest().authenticated()
+ .and()
+ .oauth2Login();
+ }
+}
+
+4️⃣ How do you handle inter-service communication?
+
+✅ Solution: Use Feign Client
+@FeignClient(name = "order-service")
+public interface OrderClient {
+ @GetMapping("/orders/{id}")
+ Order getOrder(@PathVariable("id") String id);
+}
+
+5️⃣ How do you manage configurations in Microservices?
+
+✅ Solution: Use Spring Cloud Config Server
+
+6️⃣ How do you implement logging in Microservices?
+
+✅ Solution: Use ELK Stack (Elasticsearch, Logstash, Kibana)
+
+7️⃣ How do you deploy Microservices using Kubernetes?
+
+✅ Solution: Use Kubernetes YAML Deployment
+8️⃣ How do you handle event-driven communication?
+✅ Solution: Use Kafka
+
+@KafkaListener(topics = "order-events", groupId = "order-group")
+public void consumeOrderEvent(String message) {
+ log.info("Received Order Event: {}", message);
+}
+
+9️⃣ How do you implement API Gateway?
+
+✅ Solution: Use Spring Cloud Gateway
+
+@Bean
+public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+ return builder.routes()
+ .route("order-service", r -> r.path("/orders/**")
+ .uri("lb://ORDER-SERVICE"))
+ .build();
+}
+
+🔟 How do you perform performance testing in Microservices?
+
+✅ Solution: Use JMeter or Gatling
+
+👉jmeter -n -t load_test.jmx -l result.jtl

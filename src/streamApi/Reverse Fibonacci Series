@@ -1,0 +1,41 @@
+Reverse Fibonacci Series - Using Java Streams API
+
+🗳Ans) let's break it down step
+
+🟣What is Fibonacci Series?
+
+✅️The Fibonacci series (or Fibonacci sequence) is a sequence of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence looks like this:
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …
+
+🌳after the getting Fibonacci Reverse it.
+
+✅️step 1) Generate Fibonacci series using Stream.iterate()
+
+✅️step 2) call Stream.iterate () with new int [] {f[1],f[0]+f[1]})
+
+✅️step 3) call limit (10) for only 10 numbers.
+
+✅️step 4) call map() and Collectors.toList to get theresult.
+
+✅️step5) call Collections.reverse () with earlier collected fibonacciSeries to Reverse.
+
+
+🌳Example:
+👇
+
+“int n = 10; // Number of Fibonacci numbers
+
+
+ List<Integer> fibonacciSeries =
+ Stream
+ .iterate(new int[]{0, 1}, f -> new int[]{f[1], f[0] + f[1]})
+ .limit(n)
+ .map(f -> f[0])
+ .collect(Collectors.toList());
+
+ // Reverse the list
+ Collections.reverse(fibonacciSeries);
+
+ // Print the Reverse Fibonacci Series
+ fibonacciSeries.forEach(num -> System.out.print(num + " "));

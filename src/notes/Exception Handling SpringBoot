@@ -1,0 +1,14 @@
+1. Custom Exception
+    - Duplicate Product Exception while create a Product
+    - Product Not found Exception
+    -
+
+2. Error Response Model
+
+3. Global Exception Handling (@RestControllerAdvice, @ExceptionHandler)
+
+4. Validation Exception Handling
+
+==============================================
+
+

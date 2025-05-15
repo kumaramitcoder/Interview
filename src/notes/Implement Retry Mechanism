@@ -1,0 +1,50 @@
+
+🟣Implement Retry Mechanism —
+
+🟣Q) You are designing a service that needs to communicate with an external API, which occasionally fails due to transient network issues. Describe how you would implement a retry mechanism, to handle these failures?
+
+🟣Q)Followup, explain when you would use a circuit breaker instead of a retry mechanism, and discuss the scenario of implementing both of them together?
+
+✅️Solution: Retry With Exponential Backoff and Jitter :
+
+💎When communicating with an external API to handle transient network issues, we should implement a retry mechanism to automatically retry failed requests.
+
+💎The retry mechanism would attempt to resend the request a limited number of times before giving up. To implement this, we would use exponential backoff with jitter to determine the wait time between retries. This strategy increases the backoff time exponentially with each retry, and jitter ( a random delay ) helps spread out retry requests, reducing the risk of overwhelming the external service simultaneous retries.
+
+✅️Example:
+👇
+
+private static void retryTask() throws Exception {
+ int attempts = 0;
+ while(attempts < MAX_ATTEMPTS){
+ try {
+ performTask();
+ return;
+ } catch (Exception e){
+ attempts++;
+ if(attempts >= MAX_ATTEMPTS){
+ throw new Exception("Max retry reached.", e);
+ }
+
+ long backOffTime = calculateBackOffWithJitter(attempts);
+ System.err.printf("Attempt %d failed. Retrying in %d ms...%n", attempts, backOffTime);
+ try {
+ Thread.sleep(backOffTime);
+ } catch (InterruptedException ie) {
+ Thread.currentThread().interrupt();
+ throw new RuntimeException("Thread was interrupted during retry delay", ie);
+ }
+ }
+ }
+ }
+
+💎retryTask Method:
+Attempts to execute the performTask() method up to the maximum number of retries (MAX_ATTEMPTS).
+
+💎If the task fails, the retry mechanism waits for a backoff time calculated using exponential backoff with jitter.
+
+💎The backoff time increases with each retry attempt, and jitter is added to prevent simultaneous retries from overwhelming the server.
+
+✅️Circuit Breaker With Retry Mechanism:
+
+💎Using a circuit breaker and retry mechanism is a common pattern to improve the resilience of applications interacting with external services. The circuit breaker prevents making requests when a service is consistently failing, while the retry mechanism handles transient failures with a strategy to attempt the request again.

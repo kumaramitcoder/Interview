@@ -1,0 +1,66 @@
+🟣Multiple API Versions in Spring Boot
+
+🟣4 Approaches Every Developer Should Master
+
+Recently we faced one problem for one of our dashboard APIs which is being consumed by almost 60 clients, Some clients asked for some additional data and some asked for refinement of data.
+
+It happens as business requirements evolve and technology advances, changes to APIs become inevitable. The primary goal of API versioning is to support smooth iteration and evolution without breaking compatibility for existing clients. It establishes a clear contract between API providers and consumers, ensuring that different versions of the API can coexist and that clients can migrate to newer versions at their own pace.
+
+1️⃣ URI Path Versioning : This is the most straightforward and widely adopted approach: include the version number directly in the URL path.
+
+// --- Version 1 Controller ---
+@RestController
+@RequestMapping("/api/v1/items")
+public class ItemControllerV1 {
+ @GetMapping
+ public ResponseEntity<List<Item>> fetchItemsV1() {
+ return ResponseEntity.ok(itemService.getV1Items());
+ }
+}
+
+
+✅️Pros:Clear and explicit: Versioning is visible in the URI, making it easy to understand, document, and test.
+
+❌️Cons:URL clutter: Over time, adding multiple versions can make the URL structure longer and harder to maintain.
+
+2️⃣Query Parameter Versioning :
+Here, the version is passed as a URL query parameter, while the base URI remains unchanged.
+👇
+@RestController
+@RequestMapping("/api/items")
+public class ItemController {
+ @GetMapping(params = "version=1")
+ public ResponseEntity<List<Item>> fetchV1() {
+ return ResponseEntity.ok(itemService.getV1Items()); }
+
+✅️Pros : Stable URI: The endpoint structure doesn’t change across versions.
+
+❌️Cons:Easily missed: Clients may forget to append the version parameter, leading to unintended behavior.
+
+🔹️Caching complexity: CDNs or proxies must properly handle query-based caching to avoid serving the wrong version.
+
+3️⃣ Subdomain Versioning :
+In this method, the version is embedded in the subdomain, handled at the DNS and infrastructure level rather than in code.
+
+GET https : //v1.api.example.com/items
+GET https : //v2.api.example.com/items
+
+
+
+✅️Pros :
+ Physical isolation: Each version can be deployed separately, even using different tech stacks or teams — ideal for large-scale systems.
+
+❌️Cons : Infrastructure-heavy: Requires DNS setup, wildcard SSL certificates, and complex routing.
+
+4️⃣ Custom Header Versioning :In this method, the API version is passed through a custom HTTP header.
+
+@RestController
+@RequestMapping("/api/items")
+public class ItemController {
+ @GetMapping(headers = "X-API-Version=1")
+ public ResponseEntity<List<Item>>
+
+✅️Pros :
+Clean URI: The URL structure remains consistent.
+
+❌️Cons :Low visibility: Headers are not visible in browser URLs, making testing and debugging less intuitive.

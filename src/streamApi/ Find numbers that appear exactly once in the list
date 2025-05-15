@@ -1,0 +1,22 @@
+write a Java stream program to Find numbers that appear exactly once in the list?
+
+✅️Ans) let's break it down.
+
+💎step 1) convert the list to stream.
+
+💎step 2) call filter() with collections.frequency()==1 to get number came once.
+
+💎step 3) print the result.
+
+Example:
+👇
+
+List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+ List<Integer> singleOccurrence = numbers
+ .stream()
+ .filter(num -> Collections
+ .frequency(numbers, num) == 1)
+ .collect(Collectors.toList());
+
+
+ System.out.println("Numbers Occurring Once: " + singleOccurrence);

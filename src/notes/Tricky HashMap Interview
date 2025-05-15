@@ -1,0 +1,129 @@
+1️⃣Can HashMap have null keys and null values?
+
+✅️🧠 Trick: Many think null is never allowed.
+
+✅ Answer:
+
+🔹️Yes, 1 null key is allowed.
+🔹️Multiple null values are allowed.
+
+2️⃣What happens when you insert duplicate keys
+
+🧠 Trick: Interviewers expect you to explain key replacement.
+
+✅ Answer:
+The latest value overrides the old value for the same key.
+
+map.put("fruit", "apple");
+map.put("fruit", "mango");
+
+System.out.println(map.get("fruit")); // Output: mango“
+
+ 3️⃣Is HashMap thread-safe?
+🧠 Trick: If you say yes — that’s a red flag.
+
+✅ Answer:
+ ❌ No, it is not thread-safe. Use:
+
+🔹️Collections.synchronizedMap() (slower, locks whole map)
+🔹️ConcurrentHashMap (preferred in multi-threading)
+
+4️⃣Can two unequal objects have the same hash code?
+
+🧠 Trick: This is about collision handling.
+
+✅ Answer:
+Yes! It’s called a hash collision.
+Java handles collisions using:
+🔹️Linked List (Java 7)
+🔹️Red-Black Tree (Java 8+)
+
+5️⃣What happens internally when put() is called?
+
+🧠 Trick: They want step-by-step internal flow.
+✅ Answer (Java 8):
+🔹️Compute hash using hashCode()
+🔹️Map hash to bucket index
+🔹️Check if key exists using equals()
+🔹️If exists → replace value
+🔹️If not → create new Node
+🔹️If collisions > 8 → convert bucket to Red-Black Tree
+
+
+ 6. What is the load factor?
+
+🧠 Trick: Misunderstanding load factor leads to wrong resizing logic.
+
+✅ Answer:
+ Load factor = threshold to resize
+
+🔹️Default = 0.75f
+🔹️Resize happens when:
+ current size ≥ capacity * loadFactor
+
+❓️ 7. What is rehashing?
+
+🧠 Trick: Interviewers want to test your understanding of resizing.
+
+✅ Answer:
+ When capacity threshold is crossed, HashMap creates a new array (double size) and repositions all existing keys (rehashing).
+
+❓️8)Can HashMap key be mutable?
+
+🧠 Trick: Many devs unknowingly use mutable objects as keys.
+
+✅ Answer:
+ Technically yes, but it’s a bad practice.
+ If a key’s hashCode changes after insertion, you won’t be able to retrieve the value.
+
+❓️9)What is treeification in Java 8?
+
+🧠 Trick: This tests Java 8 internal knowledge.
+
+✅ Answer:
+ If one bucket has more than 8 entries and capacity ≥ 64, Java 8 converts the bucket into a Red-Black Tree → improves lookup to O(log n).
+
+❓️10)What’s the worst-case time complexity of get() and put()?
+
+🧠 Trick: Simple-looking question, but many fail it.
+
+✅ Answer:
+ Modifying a HashMap while iterating it using for-each loop (without Iterator’s remove()).
+
+👇
+for (Map.Entry entry : map.entrySet()) {
+ map.put("x", "y"); // ❌ Throws ConcurrentModificationException
+}
+
+❓️11)Can initial capacity be set to a large value like Integer.MAX_VALUE?
+
+✅ Answer:
+ You can, but it’s risky:
+
+🔹️Might throw OutOfMemoryError
+🔹️Wastes memory if not filled
+
+❓️14. Why should hashCode() and equals() be overridden for custom keys?
+
+🧠 Trick: Real-world trap question.
+
+✅ Answer:
+ HashMap uses:
+
+🔹️hashCode() → to find bucket
+🔹️equals() → to find key in that bucket
+
+If not overridden, keys won’t match, leading to unexpected behavior.
+
+❓️15)Can a HashMap have two keys with same hash code?
+
+✅ Answer:
+ Yes. HashMap handles collisions using chaining.
+👇
+Key1.hashCode() == Key2.hashCode() // true
+Key1.equals(Key2) // false → both exist in same bucket
+
+❓️16)You added two keys with same hashCode and equals() returning true. What happens?
+
+✅ Answer:
+The second key replaces the first one’s value because HashMap considers them the same key.

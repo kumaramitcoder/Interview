@@ -1,0 +1,70 @@
+Java 8 program to check if two strings are anagrams or not?
+
+
+🌳Ans) let's break it down.
+
+
+❓️what is anagram?
+
+✅️Two strings are said to be anagram if we can form one string by arranging the characters of another string. For example, Race and Care.
+
+🗳listen” and “silent” are anagrams because you can rearrange the letters to form each other.
+
+✅️step 1) string1.split ("")Splits the string "Heart" into an array of strings where each element represents a single character. The result is ["H", "e", "a", "r", "t"].
+
+✅️Step 2) string2.split(""): Splits the string "Earth" into an array of strings, resulting in ["E", "a", "r", "t", "h"].
+
+✅️step 3)Converting to Uppercase:
+map(String::toUpperCase): Maps each element of the array to its uppercase equivalent.
+
+For string1, after mapping, the array becomes ["H", "E", "A", "R", "T"].
+
+Similarly make uppercase to string2
+["E", "A", "R", "T", "H"].
+
+✅️step 4)Sorting the Characters:
+
+sorted(): Sorts the elements of the array in their natural order (lexicographical order for strings).
+
+After sorting, the arrays become ["A", "E", "H", "R", "T"] for both string1 and string2.
+
+✅️step 5) Joining Characters into a String:
+
+collect(Collectors.joining()): Collects the sorted characters and joins them into a single string.
+
+🌳For string1, the result becomes “AEHRT”.
+
+🌳For string2, the result also becomes “AEHRT”
+
+🌴The final values of string1 and string2 are now the sorted and uppercase versions of the original strings. In this specific case, both "Heart" and "Earth" result in the same string "AEHRT" after the processing steps. This makes them anagrams because their characters, when rearranged, form the same string.
+
+
+
+🌳Example:
+👇
+
+String string1 = "Heart";
+String string2 = "Earth";
+
+ string1 = Stream
+ .of(string1.split(""))
+ .map(String::toUpperCase)
+ .sorted().collect(Collectors.joining());
+
+ string2 = Arrays
+ .stream(string2.split(""))
+ .map(String::toUpperCase)
+ .sorted().collect(Collectors.joining());
+
+
+
+ if (string1.equalsIgnoreCase(string2)) {
+
+ System.out.println("Two String " + string1 + " and "
+ + string2 + " are Anagrams");
+
+ } else {
+ System.out.println("Two String " + string1 +
+ " and " + string2 + " are NOT Anagrams");
+
+ }

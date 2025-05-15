@@ -1,0 +1,65 @@
+Interview Q&A : Java Multithreading
+
+This post covers the most commonly asked multithreading questions with in-depth answers.
+
+1️⃣❓️Q) You have threads T1, T2, and T3, how will you ensure that thread T2 runs after T1 and thread T3 runs after T2?
+
+✅️To ensure a specific execution sequence for threads, you can use the join() method, which forces the current thread to wait until the thread it’s joined with completes execution
+
+🌴Example:
+👇
+
+public class SequentialExecution {
+ public static void main(String[] args) {
+ Thread t1 = new Thread(() -> {
+ System.out.println("T1 executing");
+ });
+
+ Thread t2 = new Thread(() -> {
+ System.out.println("T2 executing");
+ });
+
+ Thread t3 = new Thread(() -> {
+ System.out.println("T3 executing");
+ });
+
+ try {
+ t1.start();
+ t1.join(); // Main thread waits for t1 to complete
+
+ t2.start();
+ t2.join(); // Main thread waits for t2 to complete
+
+ t3.start();
+ // No need to join t3 as we don't need to wait for anything after it
+ } catch (InterruptedException e) {
+ Thread.currentThread().interrupt();
+ System.err.println("Thread interrupted: " + e.getMessage());
+ }
+ }
+
+This approach guarantees sequential execution by having the main thread start each thread and wait for its completion before starting the next one. In real applications, this pattern is useful for dependent tasks.
+
+❓️2️⃣Q) Can we start a thread twice in Java?
+
+✅️No, you cannot start a thread twice in Java. Once a thread has completed execution, it cannot be restarted. If you attempt to call start() on a thread that has already been started, Java throws an IllegalThreadStateException.
+
+🌴Example:
+👇
+
+Thread thread = new Thread(() -> System.out.println("Running"));
+thread.start(); // 1st start - works fine
+thread.start(); // 2nd start - throws IllegalThreadStateException
+
+🔹️This restriction exists because allowing a thread to restart would complicate the thread lifecycle and potentially lead to inconsistent state. If you need to execute the same task multiple times, you should create a new thread instance or use executor services.
+
+❓️Q3️⃣)Can we run a thread twice in Java?
+
+✅️Yes, you can call the run() method of a Thread directly multiple times, but this doesn’t create or start a new thread. When you call run() directly, it executes in the current thread as a normal method call, not as a separate thread.
+
+🌴Example:
+👇
+Thread thread = new Thread(() -> System.out.println("Thread ID: " + Thread.currentThread().getId()));
+
+thread.run(); // 👉Executes in the main thread
+thread.run(); //👉 Executes in the main thread again

@@ -1,0 +1,64 @@
+You can memorize patterns and still build systems that fall apart.
+
+Because real system design comes in levels.
+
+⬆️level 0 Fundamentals:
+
+• Clients send requests
+• Servers handle logic
+• Databases store data
+
+You learn HTTP methods, status codes, and what a REST API is.
+
+You pick between SQL and NoSQL without really knowing why.
+
+You're not a backend dev until you've panic-fixed a 500 error in production caused by a missing null check.
+
+
+⬆️level 1 Master the building blocks:
+
+• Load balancers for traffic distribution
+• Caches (Redis, Memcached) to reduce DB pressure
+• Background workers for async jobs
+• Queues (RabbitMQ, SQS, Kafka) for decoupling
+• Relational vs Document DBs; use cases, not just syntax differences
+
+You realize reads and writes scale differently.
+You learn that consistency, availability, and partition tolerance don't always play nice.
+You stop asking "SQL or NoSQL?" and start asking “What are the access patterns?”
+
+
+⬆️level 2 Architect for complexity:
+
+• Separate read and write paths
+• Use circuit breakers, retries, and timeouts
+• Add rate limiting and backpressure to avoid overload
+• Design idempotent endpoints
+
+You start drawing sequence diagrams before writing code.
+You stop thinking in services and start thinking in boundaries.
+
+
+⬆️level 3 Design for reliability and observability:
+
+• Add structured logging, metrics, and traces
+• Implement health checks, dashboards, and alerts
+• Use SLOs to define what “good enough” means
+• Write chaos tests to simulate failure
+• Add correlation IDs to trace issues across services
+
+At this level, you care more about mean time to recovery than mean time between failures.
+You understand that invisible systems are the most dangerous ones.
+
+⬆️level 4 Design for scale and evolution:
+
+• Break monoliths into services only when needed
+• Use event-driven patterns to reduce coupling
+• Support versioning in APIs and messages
+• Separate compute from storage
+• Think in terms of contracts, not code
+• Handle partial failures in distributed systems
+
+You design for change, not perfection.
+You embrace trade-offs.
+You know when to keep it simple and when to go all in.

@@ -1,0 +1,115 @@
+❓️1Q)What is the difference between HashSet, LinkedHashSet, and TreeSet?
+
+❓️2Q)How does HashSet internally ensure uniqueness?
+
+❓️3Q)Why is it necessary to override hashCode() and equals() for custom objects in a HashSet?
+
+❓️4)What happens if two objects in a HashSet have the same hashCode but are not equal?
+
+❓️5) What is the role of load factor in a HashSet? How does it affect performance?
+
+❓️6)Explain the internal changes in HashSet from Java 7 to Java 8?
+
+❓️7)How does a TreeSet maintain sorting order?
+
+❓️8)Can a TreeSet store null values? Why or why not?
+
+❓️9)What happens if you add mutable objects to a HashSet and then modify them?
+
+❓️10)What is CopyOnWriteArraySet, and how is it different from other Set implementations?
+
+❓️11)How does ConcurrentSkipListSet achieve thread-safety?
+
+❓️12)How would you design a custom Set implementation?
+
+❓️13)How can you find duplicates in a collection using HashSet?
+
+❓️14)Explain the behavior of HashSet when adding null values?
+
+❓️15)Write a program to demonstrate hash collisions in a HashSet?
+
+❓️16)How can you dynamically change the sorting logic of a TreeSet?
+
+❓️17)What are the trade-offs of using HashSet versus TreeSet for a large dataset?
+
+❓️18)How can you create an immutable Set in Java?
+
+❓️19)Explain the difference between Set.of() and Collections.unmodifiableSet()?
+
+❓️20)How can you use Java Streams to find the union and intersection of two Sets?
+
+❓️21)How would you sort elements in a HashSet?
+
+❓️22)What happens if you try to add a duplicate element to a Set?
+
+❓️23)How can you implement a Set with multi-field uniqueness (e.g., name + ID)?
+
+❓️24)Discuss the behavior of Set with wrapper types like Integer when caching is involved?
+
+❓️25)How does serialization work with Set implementations?
+
+❓️26)What are the potential issues when using Set in a multi-threaded environment?
+
+❓️27)Explain a real-world use case where LinkedHashSet would be more appropriate than HashSet?
+
+❓️28)Write a program to find common elements between two Sets?
+
+❓️1️⃣Now How Set work internally :
+
+✅️A HashSet is backed by a HashMap, so understanding how a HashMap works is key to understanding HashSet.
+
+🌴HashSet Internals :
+
+💎When you call add(element) on a HashSet, it internally calls the put method of the backing HashMap.
+
+💎The element is stored as the key in the HashMap.
+
+💎A dummy value (constant PRESENT) is stored as the value.
+
+2️⃣.The HashMap uses hashing to determine where the key (element) should be stored.
+
+3️⃣.If two elements have the same hash code (hash collision), the equals() method is used to differentiate between them
+
+🟣🟣Step-by-Step Process: Avoiding Duplicates :
+
+📌1.Compute Hash Code:
+
+💎The hashCode() method of the object is called.
+
+💎A hash code is an integer generated based on the object’s internal state.
+
+📌2.Determine Bucket:
+
+The hash code is converted into a bucket index using the formula
+
+index = hashCode % arraySize;
+
+The bucket is essentially an index in an internal array
+
+📌3.Check for Duplicates:
+
+💎If the bucket is empty, the element is stored.
+
+💎If the bucket already contains elements (collision occurs), the equals() method is used to check if the new element is equal to any existing element in the bucket:
+
+💎If equals() returns true: The element is considered a duplicate and is not added.
+
+💎If equals() returns false: The element is added to the bucket (linked list or tree structure in case of collisions)
+
+🔹️Internal Diagram:
+👉Initial State:
+👇
+HashSet -> HashMap -> Array of Buckets
+ [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] ...
+
+
+🔹️After Adding “Apple” and “Banana”
+👇
+HashSet -> HashMap -> Array of Buckets
+ [ ] [ ] ["Apple"] [ ] [ ] ["Banana"] [ ] [ ] ...
+
+
+🔹️After Collision (e.g., Adding Two Elements with Same Hash Code)
+👇
+HashSet -> HashMap -> Array of Buckets
+ [ ] [ ] [LinkedList: "Apple" -> "Orange"] [ ] [ ] ["Banana"] [ ] [ ] ...

@@ -1,0 +1,164 @@
+What are functional interfaces?
+------------------------------------
+Consumer
+Supplier
+
+Runnable  (  void run()  )
+Predicate<T>  (  boolean test(T t)  )
+Function<T, R>  (  R apply(T t)
+
+Stream  and its key methods.
+------------------------------------
+Intermediate Operations  (return a Stream):
+    filter()  : Filter elements based on a condition.
+    map()  : Transform elements.
+    sorted()  : Sort elements.
+Terminal Operations  (consume the Stream):
+    collect()  : Convert to a collection.
+    forEach()  : Perform an action.
+    reduce()  : Aggregate elements.
+
+What is  Optional  in Java 8?
+------------------------------------
+    Used to avoid  NullPointerException.
+    METHODS => of(value)  : Create an  Optional  with a non-null value.
+               empty()  : Create an empty  Optional.
+               ifPresent()  : Perform an action if a value is present.
+
+What is the purpose of  Collectors  ?
+------------------------------------
+Collectors  is a utility for reducing streams.
+    toList()  ,  toSet()  : Convert to a list or set.
+    joining()  : Concatenate strings.
+    groupingBy()  : Group elements by a key.
+    partitioningBy()  : Partition elements into two groups.
+
+What is the difference between  Stream.findFirst()  and  Stream.findAny()  ?
+------------------------------------------------------------------------
+    findFirst()  :
+        Returns the first element of the Stream.
+        Suitable for ordered Streams.
+    findAny()  :
+        Returns any element of the Stream.
+        Suitable for parallel Streams where order doesn't matter.
+
+What are the different types of Streams in Java 8?
+---------------------------------------------------
+Sequential Stream  :
+  Processes elements sequentially in a single thread.
+Parallel Stream  :
+  Processes elements in multiple threads for faster computation.
+
+
+
+Coding Problems
+----------------
+Find the maximum value in a list using Streams.
+Convert a list of strings to uppercase.
+Group strings by their length using  groupingBy()
+Group strings by their length using  groupingBy()
+Count word occurrences in a list using  groupingBy()
+Concatenate strings using  joining()  .
+
+Sort employees by salary.
+Find the first non-repeated character in a string.
+Use Stream.distinct() to remove duplicates from  a list.
+Find all elements starting with "A" in a list.
+Sort a list of strings alphabetically and in reverse order.
+Flatten a list of lists using  flatMap()
+Use  Collectors.partitioningBy()  to separate even  and odd numbers.
+Find the second highest number in a list.
+Count the frequency of characters in a string using Streams.
+Generate an infinite Stream of even numbers and limit it to 10 elements.
+Check if all elements in a list are greater than a given number.
+Find the average of a list of numbers.
+Generate the Fibonacci series using  Stream.iterate()
+Generate the Fibonacci series using  Stream.iterate()
+Count occurrences of each word in a sentence.
+Find the longest word in a list.
+Merge two lists into a single list using  flatMap()
+Find the first element in a Stream greater than 10.
+Find the minimum value in a list using Streams.
+Use  Stream.generate()  to create a list of random  numbers.
+Find duplicate elements in a list using Streams.
+Find duplicate elements in a list using Streams.
+Use  Stream.flatMap()  to process nested collections.
+Calculate the factorial of a number using Streams.
+Use  Stream.skip()  and  Stream.limit()  to extract  sublists.
+Use  Collectors.teeing()  to compute two operations  on a Stream.
+Find all palindromic strings in a list.
+
+
+===============================================================================
+Write a program to filter a list of strings using Java 8 Streams.
+Sort a list of objects using Java 8 Comparator.
+Write a program to find the sum of all numbers in a list using Java 8 Streams.
+Implement a program to group objects by a property using Java 8 Collectors.
+Write a program to find the maximum and minimum value in a list using Java 8 Streams.
+Convert a list of strings to uppercase using Java 8 Streams.
+Write a program to count the number of strings in a list that start with a specific letter using Java 8 Streams.
+Implement a program to find the average of a list of numbers using Java 8 Streams.
+Write a program to concatenate two lists using Java 8 Streams.
+Demonstrate the use of Optional in Java 8
+
+===============================================================================
+
+1. Find the String with most unique characters
+2. Find the most Frequent Character in each String
+3. Sort String by the number of distinct characters
+4. Find the String with the Highest Vowel Count
+5. Group Strings by their length
+6. Find Strings containing only unique characters
+7. Find the string that appears most Frequently
+8. Find the most common word length
+9. Find String that contain only alphabetic characters
+10. Partition Employee by salary
+11. Find the Highest paid employee
+12. Group employee by Dept
+13. Find the employees under a specific age
+14. List employes managed by specific Manager
+15. Calculate average salary by department
+16. Find employee with most years of experience
+17. List employees who have a salary above the average
+18. Sort employees by name
+19. Find employees who have no Manager
+20. Find the department with the highest average salary
+21. Get List of all unique departments
+22. Count employes in each department
+23. Find the employee with the largest name
+24. sum of salaries of employee above 40
+
+=====================================================
+
+Link : https://www.youtube.com/watch?v=1pweZskNq7w&t=314s&ab_channel=SivaReddy
+
+1. Write a program to print employee details working in each department
+2. Write a program to print employees count working in each department
+3. Write a program to print active and inactive employees in the given collection
+4. Write a program to print Max/Min employee salary from the given collection
+5. Write a program to print the max salary of an employee from each department
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

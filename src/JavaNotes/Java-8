@@ -1,0 +1,58 @@
+Q.What is the use of Function, Predicate, and Supplier interfaces in Java 8?
+
+In Java 8, functional interfaces like Function, Predicate, and Supplier are introduced under the java.util.function package to enable functional programming concepts using lambdas and method references. They are widely used in Streams, Collections, and various functional operations.
+
+1. Function Interface
+Definition:
+ Function<T, R> represents a function that takes an input of type T and produces a result of type R.
+Method:
+R apply(T t) → applies the function to the given argument.
+Use Case:
+ When you want to transform/convert a value from one type to another (e.g., String → Integer).
+Example:
+Function<String, Integer> lengthFunction = str -> str.length();
+System.out.println(lengthFunction.apply("Java")); // Output: 4
+Real-world usage:
+Mapping elements (like using .map() in streams).
+Converting objects in data processing pipelines.
+
+2. Predicate Interface
+Definition:
+ Predicate<T> represents a function that takes an input T and returns a boolean result.
+Method:
+boolean test(T t) → evaluates the given input to true or false.
+Use Case:
+ When you need to test a condition, filter elements, or validate data.
+Example:
+Predicate<Integer> isEven = num -> num % 2 == 0;
+System.out.println(isEven.test(4)); // Output: true
+Real-world usage:
+Filtering collections.
+Validating user input.
+Conditional processing in streams (.filter()).
+
+3. Supplier Interface
+Definition:
+ Supplier<T> represents a supplier of results without taking any input.
+Method:
+T get() → gets a result.
+Use Case:
+ When you want to generate or supply data without needing any external input.
+Example:
+Supplier<String> greetingSupplier = () -> "Hello, World!";
+System.out.println(greetingSupplier.get()); // Output: Hello, World!
+
+Real-world usage:
+Lazy generation of values (random numbers, database connection).
+Providing default values.
+Supplying objects in functional chains.
+
+Summary Table:
+ Interface Input Output Common Use Function Takes input Returns result Mapping, Transformations Predicate Takes input Returns boolean Filtering, Validation Supplier No input Supplies output Object creation, Default values Why They Are Important:
+Encourage clean, readable, and declarative code.
+Remove boilerplate code using lambdas and method references.
+Help build stream pipelines elegantly.
+Make code easier to test and parallelize.
+
+Conclusion:
+ The Function, Predicate, and Supplier interfaces are essential building blocks for writing modern, functional-style Java applications. They allow developers to pass behavior (code) as data, making Java 8 much more powerful and expressive for handling real-world programming challenges.

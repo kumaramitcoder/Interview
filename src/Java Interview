@@ -1,0 +1,50 @@
+
+1. What happens behind the scenes during object creation?
+
+2. Difference between `==` and `.equals()` — really?
+
+3. How does JVM garbage collection actually work?
+
+4. What is a memory leak in Java and how do you debug it?
+
+5. Explain `volatile`, `synchronized`, and `Lock`.
+
+6. How does Java handle thread scheduling?
+
+7. What are the types of class loaders in Java?
+
+8. Describe the life cycle of a servlet.
+
+9. Checked vs Unchecked exceptions – where would you use each?
+
+10. Internal working of HashMap – 2025 edition.
+
+11. Why is String immutable? Real implications?
+
+12. How does Java Stream API work internally?
+
+13. What’s the difference between `Future`, `CompletableFuture`, and `Reactive Streams`?
+
+14. Why do we need design patterns? Give real examples.
+
+15. SOLID principles in Java with practical code.
+
+16. Explain how Spring handles dependency injection under the hood.
+
+17. What is AOP and where would you use it?
+
+18. What are the pitfalls of using ORM like Hibernate?
+
+19. Lazy vs Eager loading — what's the impact?
+
+20. What is the difference between REST and RPC in real projects?
+
+21. How to tune JVM for production performance?
+
+22. Can you explain how transactions work in Spring?
+
+23. What are some Java 17+ features every dev should know?
+
+24. Write thread-safe code for a shared counter – no `synchronized`!
+
+25. What’s the biggest mistake you made with Java — and what did you learn?

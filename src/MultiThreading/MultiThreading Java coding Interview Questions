@@ -1,0 +1,28 @@
+1. Producer-Consumer Problem using BlockingQueue / wait-notify / Semaphore
+
+ Classic concurrency control question to test how you handle thread communication and resource locking.
+
+ 2. Print 1 to 100 in Sequence using Multiple Threads
+
+ • Thread A prints odd, Thread B prints even.
+ • Focus: Thread coordination, synchronized, volatile, or Lock.
+
+ 3. Print “ABCABC…” using 3 Threads
+
+ • Each thread prints one character in strict sequence.
+
+ • Tests your understanding of low-level locks or advanced coordination (e.g., ReentrantLock, Condition, CyclicBarrier).
+
+ 4. Implement a Custom Thread Pool
+
+ • Demonstrates knowledge of ExecutorService, worker threads, and queue-based task submission.
+
+ 5. Deadlock Scenario Simulation and Prevention
+
+ • Banks are especially cautious about this. You’ll often be asked to write code that avoids or detects deadlocks.
+
+ 6. Rate Limiter Implementation using Token Bucket / Leaky Bucket
+
+ • Especially relevant in payment APIs, fraud detection, and throttling systems.
+
+#𝟒 Print “𝐅𝐨𝐨𝐁𝐚𝐫𝐅𝐨𝐨𝐁𝐚𝐫…”  Using Two Threads in Alternation using 𝐒𝐞𝐦𝐚𝐩𝐡𝐨𝐫𝐞𝐬.

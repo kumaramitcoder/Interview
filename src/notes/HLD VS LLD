@@ -1,0 +1,51 @@
+HLD and LLD are one of the core part for all levels of interviews . knowledge on this will make or break. it's a vast topic and today we are going through the basics ,what's different between them, at what point of the which one is being used.
+
+💡 Memorization Tip:
+ Think of HLD as a city map 🗺️ and LLD as a building plan 🏢!
+
+Key Points: HLD vs. LLD:
+✅ High-Level Design (HLD)
+
+🔹️Provides an architectural blueprint of the system.
+
+🔹️Focuses on major components, module interactions, and scalability.
+
+🔹️Includes technology stack, APIs, databases, and security concerns.
+
+🔹️Used by architects and senior developers during early design stages.
+
+🔹️Example: “User authentication will be handled via JWT and OAuth.”
+
+✅ Low-Level Design (LLD):
+
+🔹️Defines the detailed implementation of each module.
+
+🔹️Covers class diagrams, data structures, business logic, and APIs.
+
+🔹️Specifies database schemas, function specifications, and error handling.
+
+🔹️Used by developers and engineers for coding and implementation.
+
+🔹️Example: “LoginService will validate users using Spring Security and JWT tokens.”
+
+✅ HLD vs. LLD: Key Differences :
+
+🔹️HLD: Big-picture architecture 🏗️ | LLD: Code-level details 💻
+
+🔹️HLD: System-wide security & scalability 🔐 | LLD: Module-specific security & optimization ⚙️
+
+🔹️HLD: High-level components like APIs & services 🔄 | LLD: Classes, methods, & logic 🛠️
+
+✅ Use Case: E-commerce Order Processing System :
+
+🔹️HLD: Defines major services (User, Order, Payment, Inventory).
+
+🔹️LLD: Details class structures, API requests, database schema.
+
+📌What is HLD❓️
+
+High-Level Design (HLD) provides an architectural blueprint of a system. It outlines the overall structure, major components, and their interactions while focusing on scalability, security, and system-wide decisions.
+
+📌What is LLD❓️
+
+Low-Level Design (LLD) delves into the internal workings of the system. It provides a detailed breakdown of each module, including class diagrams, data structures, algorithms, and logic implementation.

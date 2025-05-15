@@ -1,0 +1,53 @@
+❓️Q1)What are lambda expressions and their use in Java-8❓️
+
+❓️Q2)What are the features of Java 8 and Java 11?
+
+❓️3Q)What are the Java 8 Interface changes?
+
+❓️4Q)What is a Functional interface in Java-8?
+
+❓️5Q)What are the types of Functional interfaces?
+
+❓️6Q)What is Method Reference in Java-8?
+
+❓️7Q)What is Optional in Java-8?
+
+❓️Q8)What are the Intermediate and terminal operations in Java-8?
+
+❓️Q9)What is parallel processing in Java-8, and what are its uses?
+
+❓️Q10)Difference between Flat and flat-map methods in Java-8?
+
+❓️Q11)What is the default method and its uses?
+
+❓️Q12)What are default and static methods in Java-8?
+
+❓️Q13)What are the memory changes that happened in Java-8?
+
+❓️Q14)What are the new Java-8 changes in HashMap?
+
+❓️Q15)Why variable inside the lambda function is final in Java-8?
+
+❓️16Q)Write a Program to find the duplicates in an array using stream API.
+
+❓️17Q)How to sort the employee list in ascending and descending order using Java-8 streams API?
+
+❓️18Q)Find the highest salary of an employee from the HR department using Java stream API?
+
+❓️19Q) Find all employees who live in ‘Pune’ city, sort them by their name, and print the names of employees using Stream API?
+
+❓️20Q)Find an average of even numbers using Java using Java 8 stream API?
+
+❓️21Q)How to use sorting in Java-8?
+
+❓️22Q)Find the employee count in each department in the employee list using Java 8 Stream API?
+
+❓️23Q)Find employees based on location or city and sort in an alphabetical manner using stream API?
+
+❓️24Q)Find the occurrence of names of employees from the List<Employee>, and find the frequency of each name?
+
+❓️25Q)Write a Program to print only numbers from an alphanumeric char array using stream API in java-8?
+
+❓️26Q)Write a program to find the sum of the entire array result using Java 8 streams?
+
+❓️27Q)Write a program to find even numbers from a list of integers and multiply with 2 using stream java 8?

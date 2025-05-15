@@ -1,0 +1,21 @@
+SQL Fundamentals:
+🔹 Understand SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY clauses.
+🔹 Learn data types, constraints, and normalization for better database design.
+
+✅ Joins & Subqueries:
+🔹 Be comfortable with INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, and CROSS JOIN.
+🔹 Understand correlated and non-correlated subqueries for advanced queries.
+
+✅ Window Functions & Aggregations:
+🔹 Master RANK(), DENSE_RANK(), ROW_NUMBER(), LEAD(), and LAG().
+🔹 Learn how to partition and filter data efficiently using these functions.
+
+✅ Performance Optimization:
+🔹 Know how to use INDEXING, EXPLAIN PLAN, and Query Optimization techniques.
+🔹 Understand CTEs and Temp Tables to improve query performance.
+
+✅ Hands-On Practice:
+🔹 Solve real-world SQL problems on platforms like LeetCode, HackerRank, and SQLPad.
+🔹 Work on scenario-based SQL questions that are commonly asked in interviews.
+
+📥 Get the SQL Interview Q&A PDF – covering real-world scenarios, query optimizations, and advanced SQL challenges!

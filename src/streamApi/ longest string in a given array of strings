@@ -1,0 +1,25 @@
+Q)write a Java stream program to Identify the longest string in a given array of strings.
+
+✅️Ans) let's break it down.
+
+💎step 1) convert the list to stream.
+
+💎step 2)call max() with Comparator.comparingInt () strings length.
+
+💎step 3) orElse() no strings found .
+
+💎step 4)print the result.
+
+🌴Example:
+👇
+
+String[] strings = {"apple", "banana", "cherry", "watermelon"};
+
+ String longestString = Arrays
+ .stream(strings)
+ .max(Comparator
+ .comparingInt(String::length))
+ .orElse("No strings found");
+
+
+ System.out.println("Longest String: " + longestString);

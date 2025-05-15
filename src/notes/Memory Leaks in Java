@@ -1,0 +1,163 @@
+Memory Leaks in Java (Real-Time Use Case & Fixes)
+
+✅️Since Java has automatic garbage collection (GC), many developers assume memory leaks can’t happen. But they do!
+Java memory leaks occur when objects are no longer needed but are still unintentionally referenced, preventing GC from reclaiming memory
+
+📌Common Causes of Memory Leaks in Java :
+
+💎Static Collections (Maps, Lists, etc.)
+Objects added to static collections are never removed.
+
+💎Unclosed Resources (Files, DB connections, Streams).
+💎Listeners & Callbacks Not Removed (Event listeners in Swing, Android, etc.).
+
+💎ThreadLocal Variables Not Cleaned Up
+
+🌳Real-Time Use Case: Memory Leak in a Caching System :
+
+🌴Scenario :
+A Java application caches user sessions in a static HashMap. Over time, unused sessions remain in memory, causing an OutOfMemoryError.
+👇
+public class SessionCache {
+ private static final Map<Long, UserSession> cache = new HashMap<>();
+
+ public void addUserSession(Long userId, UserSession session) {
+ cache.put(userId, session); // Stored forever unless manually removed!
+ }
+
+ public UserSession getSession(Long userId) {
+ return cache.get(userId);
+ }
+
+🌳Why is this a memory leak?
+
+🔹️static Map lives for the entire application lifetime.
+
+🔹️Even if a UserSession is no longer needed, it remains in cache.
+
+🔹️Over time, this fills up heap memory, leading to OutOfMemoryError
+
+✅️🌴Solution 1: Use WeakHashMap (Auto-Cleaning) :
+
+public class SessionCache {
+ // WeakHashMap allows GC to remove unused entries
+ private static final Map<Long, UserSession> cache = new WeakHashMap<>();
+
+ public void addUserSession(Long userId, UserSession session) {
+ cache.put(userId, session);
+ }
+
+ public UserSession getSession(Long userId) {
+ return cache.get(userId);
+ }
+
+✅️WeakHashMap uses weak references, so if no other code references UserSession, GC can remove it.
+
+✅️Solution 2: Manual Cleanup (Best for Controlled Caching)
+
+🌳If you need strong control over cache eviction.
+
+🌳Call removeSession() when a user logs out or becomes inactive.
+
+❌️❓️Another Real-World Example: Unclosed Resources
+
+Problem (File Leak)
+
+public void readFile(String path) {
+ try {
+ BufferedReader reader = new BufferedReader(new FileReader(path));
+
+ String line = reader.readLine(); // What if an exception occurs?
+
+ // ... process file ...
+ // Missing: reader.close();
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+}
+
+❌️Why is this a leak?
+
+🌴If an exception occurs, reader is never closed → file handle leak.
+
+✅️Fix: Use Try-With-Resources (Auto-Closing)
+
+🌳try-with-resources ensures close() is called even if an exception occurs
+
+❓️How to Detect Memory Leaks in Java?
+
+🔹️VisualVM / Java Mission Control (Monitor heap usage).
+
+🔹️Eclipse Memory Analyzer (MAT) (Analyze heap dumps).
+
+🔹️-Xmx & -Xms flags (Set heap size to detect leaks early).
+
+🔹️Profiling Tools (YourKit, JProfiler)
+
+
+===============================================================================
+
+Memory leaks in Spring Boot applications can lead to high memory usage, slow performance, and even OutOfMemoryErrors (OOM).
+
+🟣The “Leaky Tank” Problem :
+
+Imagine running a high-performance microservice that processes thousands of requests per second. Suddenly:
+
+📌Issues Start Appearing:
+
+❌️Increasing memory usage
+
+❌️Slower response times
+
+❌️Frequent garbage collection (GC) pauses
+
+❌️Eventually… OOM Errors!
+
+Think of your application’s memory as a water tank. If there’s a leak, the tank keeps filling until it overflows.
+
+🌴To prevent crashes, we need to detect & fix these leaks before they happen!
+
+🟣What Causes Memory Leaks in Spring Boot?
+
+📌Detecting Memory Leaks: JVM Profiling Tools
+
+📌Monitor Memory Usage with Spring Boot Actuator
+
+📌Profile Memory Usage with VisualVM
+
+🟣Fixing Common Memory Leaks in Spring Boot : below are some steps we can take to prevent and fix the issue 🟣
+
+✅️Fix #1: Closing Database Connections Properly
+
+✔ Use try-with-resources to auto-close connections
+
+✅️Fix #2: Limiting Cache Growth
+
+✔ Use size-limited caches to prevent unbounded memory growth
+
+✅️Fix #3: Use Thread Pools Instead of Creating New Threads
+
+✔ Uses thread pools instead of creating infinite threads
+
+✅️Fix #4: Set Correct Bean Scope
+
+❌️Wrong (Singleton Beans hold memory forever)
+
+✔ Better Approach: Use Request Scope
+
+✔ Creates beans per request, reducing memory footprint
+
+✅️Fix #5: Close InputStreams to Avoid Leaks
+
+❌️Wrong: InputStream never closed
+
+✔ Better Approach: Use Try-with-Resources
+
+✔ Ensures InputStream is always closed
+
+🟣Best Practices for Memory Optimization in Production
+✔ Enable GC Logging for Monitoring
+
+✔ Set Maximum Heap Size for Containers
+
+✔ Use GraalVM Native Image for Low-Memory Execution

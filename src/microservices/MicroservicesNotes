@@ -1,0 +1,85 @@
+Advantage : Scalability, Flexibility in Technology Stack, Faster Development & Deployment, Fault Isolation & Resilience,Improved Maintainability
+------------------------------------------------------------------------------------------------------------------------------------------------------
+1) Single functionality focused
+2) Loosely Coupled
+3) Technology agnostic
+4) Independent Development
+5) Scaling
+6) Fault Isolation
+
+DisAdvantage : Increased Complexity, Operational Overhead, Network & Performance Issues, Data Consistency Challenges, Higher Initial Cost
+------------------------------------------------------------------------------------------------------------------------------------------------------
+1) Added complexity
+2) Communication between Services
+3) Deployment and Management
+4) Debugging
+
+When to Use Microservices?
+------------------------------
+✔ Large, complex applications with multiple independent modules.
+✔ High scalability requirements (e.g., e-commerce, fintech, SaaS).
+✔ Teams distributed across locations.
+✔ Need for different tech stacks in different components.
+
+When to Avoid Microservices?
+------------------------------
+❌ Small applications (monoliths are simpler).
+❌ Tightly coupled systems where services need strong consistency.
+❌ Limited DevOps resources (setting up microservices requires investment).
+
+Microservices Patterns
+------------------------------
+1. Decomposition Patterns (Splitting the Monolith)
+    a) Domain-Driven Design (DDD)  - Break services by business capabilities (e.g., Order, Payment, User).
+    b) Strangler Fig Pattern -  Gradually replace a monolith by incrementally migrating features.
+    c) Sidecar Pattern - Decouple helper functions (logging, monitoring) from main services.
+
+2. Communication Patterns (Service Interaction)
+    a) API Gateway - Single entry point for clients (handles routing, auth, rate limiting).
+    b) Synchronous (Request/Response) - REST, gRPC, GraphQL
+    c) Asynchronous (Event-Driven)
+    d) Service Mesh (For Resilient Communication) - Handles service-to-service communication (retries, timeouts, load balancing).
+
+3. Resilience & Fault Tolerance Patterns
+    a) Circuit Breaker - Stop calling a failing service to prevent cascading failures. Resilience4j, Hystrix (deprecated), Envoy
+    b) Retry Pattern - Automatically retry failed requests (with backoff).
+    c) Bulkhead Pattern - Isolate failures (e.g., thread pools per service).
+    d) Timeout & Fallback - Avoid indefinite waits and provide graceful degradation.
+
+4. Data Management Patterns
+    a) Database per Service - Each microservice owns its database (avoid shared DBs). Transactions → Use Saga Pattern, Queries → Use API Composition or CQRS
+    b) Saga Pattern - Manage distributed transactions (compensating actions if steps fail).
+    c) Event Sourcing - Store state changes as events (useful for auditing & replay).
+
+5. Observability & Monitoring Patterns
+    a) Distributed Tracing - Track requests across services (debug latency issues).
+    b) Centralized Logging - Aggregate logs from all services. (ELK Stack (Elasticsearch, Logstash, Kibana), Loki)
+    c) Health Check API - Detect failing services (used by Kubernetes for auto-healing).
+
+6. Deployment & Scaling Patterns
+    a) Containerization (Docker) - Package services with dependencies.
+    b) Orchestration (Kubernetes) - Auto-scale, load balance, and self-heal services.
+    c) Blue-Green Deployment - Zero-downtime releases (switch traffic between two identical environments).
+    d) Canary Release - Gradually roll out updates to a subset of users.
+
+When to Use Which Pattern?
+---------------------------------
+Service decomposition =	DDD, Strangler Fig
+Handling failures =	Circuit Breaker, Retry, Bulkhead
+Data consistency =	Saga, Event Sourcing
+Inter-service comms	 = API Gateway, Service Mesh
+Debugging =	Distributed Tracing, Logging
+Scalability =	Kubernetes, Auto-scaling
+
+Microservices patterns help manage complexity, resilience, and scalability, but they require proper tooling and DevOps practices.
+
+
+
+
+
+
+
+
+
+
+

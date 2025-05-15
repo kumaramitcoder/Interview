@@ -1,0 +1,49 @@
+Q)write a Java stream program to Find the longest string in a list?
+
+🌴Ans) let's break it down.
+
+we can resolve this in many ways.
+
+✅️one we can use reduce()
+
+and
+
+✅️other way is to use collect ()
+
+I have shared both the ways and hope this will help you to get an understanding of different ways in Java stream API .
+
+step 1) convert the list to stream
+
+Step 2) call reduce() and check as below
+or use collect ()
+
+
+
+1️⃣🌴Example:
+👇
+
+ list<String> words = Arrays.asList("Java", "Stream", "API", "Development");
+
+String longest = words
+ .stream()
+ .reduce((word1, word2) -> word1.length() > word2.length() ? word1 : word2)
+ .orElse(null);
+
+System.out.println(longest);
+
+ 👉Output: Development
+
+
+ 🟣 🟣 🟣 OR 🟣🟣🟣
+
+
+2️⃣Example:
+
+String longestStr = words
+ .stream()
+ .collect(Collectors
+.maxBy(Comparator.comparingInt(String::length)))
+ .get();
+
+
+ System.out.println("\nLongest String is = " + longestStr);

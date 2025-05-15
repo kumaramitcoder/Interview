@@ -1,0 +1,28 @@
+Q)write a Java stream program to Find the Kth Smallest Element in an Array ?
+
+🌴Ans) let's break it down.
+
+💎Step 1) convert the array to stream
+
+💎Step 2) call sorted () to sort in ascending order.
+
+💎Step 3) call skip() k-1 to skip k-1 elements.
+
+
+💎step 4) call findFirst () to get the result
+
+🔹️Example:
+👇
+input
+
+👉int[] array = {4, 2, 7, 1, 5, 3, 6};
+
+👉int k = 3; // Find the 3rd smallest element
+
+
+
+int kthSmallest = Arrays.stream(array)
+ .sorted()
+ .skip(k - 1)
+ .findFirst()
+ .orElse(-1);

@@ -1,0 +1,18 @@
+Q)Write a Java stream program to Count Employees in Each Department❓️
+
+🗳Ans) let's break it down
+
+✅️step 1) convert the list to stream
+
+✅️step 2) call Collectors.groupingBy with department and counting ()
+
+✅️step 3) print the result
+
+🌳Example:
+👇
+
+Map<String, Long> departmentCount
+ = employees
+ .stream()
+ .collect(Collectors
+ .groupingBy(e -> e.department, Collectors.counting()));

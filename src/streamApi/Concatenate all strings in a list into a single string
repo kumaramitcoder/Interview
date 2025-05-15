@@ -1,0 +1,23 @@
+Q)write a Java stream program to Concatenate all strings in a list into a single string?
+
+✅️And) let's break it down.
+
+💎step 1) convert the list to stream.
+
+💎step 2) call reduce () like below
+
+💎step 3) print the result.
+
+✅️Example:
+👇
+
+List<String> words = Arrays
+.asList("Stream", "API", "is", "powerful");
+
+
+String concatenated = words
+ .stream()
+ .reduce("", (s1, s2) -> s1 + " " + s2).trim();
+
+
+System.out.println(concatenated);

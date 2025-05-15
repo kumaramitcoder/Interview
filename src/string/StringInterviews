@@ -1,0 +1,197 @@
+    1. Reverse a String
+    2. Check if String is a Palindrome or not
+    3. Remove Duplicates from a String
+    4. Find the First Non-Repating Character
+    5. Count the occurance of each character
+    6. Reverse a word in a sentance
+    7. Check if Two String are Anagram
+    8. Find the Longest Substring without repeating the character
+    9. Convert a string to an Integer  (atoi implementation)
+    10. Compress a String
+    11. Find the Most Frequent Character
+    12. Find all subStrings of a given String
+    13. Check if a string is a rotation of another string
+    14. Remove all white Spaces from String
+    15. Check if a String is a valid shuffle of two string
+    16. Convert a String to Title case
+    17. Find the LOngest common prefix sum
+    18. Convert a String to character array
+    19. Repeate Spaces with %20 (URL Encoding)
+    20. convert a sentence into an Acronym
+    21. Check if a string contains only Digits.
+    22. Find the no of words in String
+    23. Remove a given character from a String
+    24. Find the Sortest word in a String
+    25. Find the longest palindromic Substring
+
+================================================================
+1. Remove All Adjacent Duplicates (Including Resulting Pairs) : Remove all adjacent duplicates recursively until no more can be removed
+    Example: "aabccbaa" → "" (aabccbaa → abba → aa → "")
+2. Remove K Consecutive Duplicates : Remove adjacent duplicates only if they appear exactly k times.
+    Example: "deeedbbcccbdaa", k=3 → "aa" (ddd, bbb, ccc removed)
+3. Compress String (Count Consecutive Duplicates)
+    Compress "aaabbcccc" → "a3b2c4". If compressed string isn't shorter, return original.
+4. Keep Only First Occurrence of Each Character
+    "bcabc" → "bca" (remove later duplicates, not necessarily consecutive).
+5. Remove Comments from Code (Filter Consecutive '/')
+    Remove // and /* */ comments from Java code.
+6. Longest Substring Without Repeating Characters : Find length of the longest substring without duplicates.
+    "abcabcbb" → 3 ("abc").
+7. Group Shifted Strings (Consecutive ASCII Differences) : Group strings like ["abc", "bcd", "acef"] where each letter shifts uniformly (e.g., abc→bcd
+    because a+1=b, b+1=c).
+8. Valid Palindrome After Removing 1 Character : Check if a string can be a palindrome by removing at most 1 character.
+    "abca" → true (remove 'c').
+9. Count Binary Substrings with Equal 0s and 1s : Count substrings like "0011" where 0s and 1s appear consecutively in equal numbers.
+    "00110011" → 6 ("0011", "01", "1100", "10", "0011", "01").
+10. Reverse Words in a String (Preserve Spaces) : Reverse words but keep spaces.
+     "Let's code" → "s'teL edoc".
+
+================================================================
+1. Find the String with most unique characters
+2. Find the most Frequent Character in each String
+3. Sort String by the number of distinct characters
+4. Find the String with the Highest Vowel Count
+5. Group Strings by their length
+6. Find Strings containing only unique characters
+7. Find the string that appears most Frequently
+8. Find the most common word length
+9. Find String that contain only alphabetic characters
+10. Partition Employee by salary
+11. Find the Highest paid employee
+12. Group employee by Dept
+13. Find the employees under a specific age
+14. List employes managed by specific Manager
+15. Calculate average salary by department
+16. Find employee with most years of experience
+17. List employees who have a salary above the average
+18. Sort employees by name
+19. Find employees who have no Manager
+20. Find the department with the highest average salary
+21. Get List of all unique departments
+22. Count employes in each department
+23. Find the employee with the largest name
+24. sum of salaries of employee above 40
+
+#Strings
+=============
+1. Java program to reverse a string
+2. Java program to reverse each word of a given string
+3. Java program to find duplicate characters in a string
+4. Java program to count Occurrences of Each Character in
+String
+5. Java program to count the number of words in a string
+6. Java program to find all permutations of a given string
+7. Java program to find if a string is Palindrome
+8. Java program to determine if Two Strings are Anagrams
+9. Java program to Count Vowels and Consonants in a given
+string
+10. Java program to print unique characters
+11. Java program to print even indexed characters
+12. Java program to remove space from a given string
+13. Java program to print each letter twice from a given string
+14. Java program to swap two string without using 3rd
+variable
+15. Java program to gives Output: a2b2c3d2 for the Input
+String Str = "aabbcccdd"
+16. Java program to gives two Output: "abcde", "ABCDE" for
+the Input String Str = "aBACbcEDed"
+17. Java program to gives two Output: "Subburaj", "123" for
+the Input String Str = "Subbu123raj"
+18. Java program to gives Output: "32412120000" for the
+Input String Str = "32400121200"
+19. Java program to gives Output: "00003241212" for the
+Input String Str = "32400121200"
+20. Java program to find the longest without repeating characters
+
+#Strings : 30 Java String Coding Problems with Solutions
+=================================================================
+
+1. Reverse a String
+2. Check if a String is Palindrome
+3. Count Occurrences of a Character
+4. Find Duplicate Characters in a String
+5. Remove Duplicates from a String
+6. Check if Two Strings are Anagrams
+7. Find First Non-Repeated Character
+8. Check if a String Contains Only Digits
+9. Count Vowels and Consonants
+10. Check if a String is a Rotation of Another String
+11. Find the longest word in a sentence
+12. Convert a string to Title Case
+13. Find all permutations of a string
+14. Convert string to integer without Integer.parseInt()
+15. Find the frequency of words in a sentence
+16. Convert String to char[] without .toCharArray()
+17. Remove all non-alphabetic characters from a string
+18. Convert lowercase to uppercase without toUpperCase()
+19. Reverse words in a sentence
+20. Check if two strings are one edit distance apart
+21. Implement strStr() function (Find substring index)
+22. Compress a string (aaabba -> a3b2a1)
+23. Find longest common prefix in an array of strings
+24. Implement isSubstring() without contains()
+25. Print all substrings of a string
+26. Convert a number to words (123 -> "One Hundred Twenty-Three")
+27. Validate an email address format
+28. Convert CamelCase to snake_case
+29. Find the lexicographically smallest string
+30. Remove consecutive duplicate words from a sentence
+
+=================================================================
+
+
+1. Longest SubString without Repeating Characters.
+2. Valid Palindrome
+3. Longest Palindromic Substring
+4. Group Anagram
+5. Implement ATOI (String to Int)
+6. Longest common prefix
+7. Check for Anagram
+8. Count and Say
+9. Minimum Window Substring
+10. Add Binary
+
+
+String
+=================================================================
+Q11: Print duplicate characters from a string?
+Q12: Check if two strings are k-anagrams or not
+Q13: Check for Balanced Brackets
+Q14: Count number of substrings
+Q15: Check if a string is a rotated palindrome or not
+Q16: Find all possible palindromic substrings of a string
+Q17: Find the longest substring of a string containing distinct
+characters
+Q18: Determine whether a string is a palindrome or not
+Q19: Find first k non-repeating characters in a string in a single
+traversal
+Q20: Check if a repeated subsequence is present in a string or not
+
+
+
+
+
+
+______________________________________________________________
+
+Strategies for Interview
+
+1. Clarify the question
+2. Spell out the brute-force solution
+3. Try to find patterns
+4. Test for comer cases
+5. Know your interviewers & the company
+
+Other advice
+
+• Don’t Be honest always
+• Keep a positive spirit
+• Be aware of your body language
+
+
+
+
+
+
+
+

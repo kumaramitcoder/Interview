@@ -1,0 +1,33 @@
+Q)write a Java stream program to Get the names of departments and average salaries of employees in each department, but only include departments where the average salary is greater than $70,000❓️
+
+🗳Ans) let's break it down.
+
+🌳step 1) convert the list to stream.
+
+🌳Step 2) call Collectors.groupingBy () with departments and average salary .
+
+🌳Step 3) call filter () value >70000
+
+🌳step 4) call Collect() to get the result
+
+✅️Example:
+👇
+
+ List<Employee> employees = List.of(
+new Employee("Alice", "Engineering", 85000),new Employee("Bob", "Engineering", 72000),new Employee("Charlie", "HR", 65000),new Employee("David", "HR", 60000),new Employee("Eve", "Marketing", 95000)
+ );
+
+
+ Map<String, Double> highAvgSalaries = employees
+ .stream()
+ .collect(groupingBy
+ (Employee::getDepartment, averagingDouble(
+ Employee::getSalary)))
+ .entrySet().stream()
+ .filter(entry -> entry
+ .getValue() > 70000)
+ .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+
+ highAvgSalaries.forEach((dept, avgSalary) ->
+ System.out.println(dept + " avg salary: " + avgSalary));

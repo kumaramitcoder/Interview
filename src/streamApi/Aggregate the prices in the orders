@@ -1,0 +1,73 @@
+Stream API- Aggregate the prices in the orders
+
+🟣Q)Imagine you have a list of items in an order and you have multiple items for example Apples, Pears, and other Fruits. Now there are customer orders containing different items. The requirement is to write a program in order to aggregate the price of items in all of the orders?
+
+✅️Ans) let's break it down.
+
+1️⃣step 1) convert the list to stream.
+
+2️⃣step 2) call flatMap() to Flatten all order items. as we have multiple orders.
+
+3️⃣step 3) call Collectors.groupingBy () with items name and items price*quantity.
+
+4️⃣step 4) print the result map.
+
+🌴Example:
+👇
+
+✅️input:
+
+List<Orders> orders = Arrays.asList(
+
+new Orders(Arrays.asList(new Item("Pears",200.45, 22),new Item("Mangoes",120.45, 45),new Item("Oranges",145.67, 22),new Item("Mandarins",207.45, 89))),
+
+ new Orders(Arrays.asList(new Item("Pears",200.45, 21),new Item("Mangoes",120.45, 459),new Item("Oranges",345.67, 22),new Item("Mandarins",207.45, 89))));
+
+✅️logic:
+👇
+
+ Map<String, Double> totalAmountPerItem = orders
+ .stream()
+ .flatMap(order -> order
+ .items.stream())
+ .collect(Collectors
+ .groupingBy(Item::getName,
+ Collectors.summingDouble(item -> item.price * item.quantity)));
+
+
+ totalAmountPerItem.entrySet().stream()
+ .forEach(entry -> System.out.println(entry.getKey() + " = " + entry.getValue()));
+
+
+✅️Output:
+👇
+
+Mangoes = 60706.8
+Mandarins = 36926.1
+Oranges = 10809.48
+Pears = 8619.349999999999nullsLast() Vs nullsFirst() in Streams API
+
+                         Stream API has many predefined methods to make declarative programming so easy but nullsLast() and nullsFirst() are very handy methods for data segregation. let's see in detail with an example and when to use these two.
+
+                         🔹️nullsFirst() moves null values to the beginning.
+
+                         🔹️Changing to nullsLast() would push null values to the end:
+
+                         🔹️Edge Case: If there were multiple null values, sorting order would remain unchanged for them.
+
+                         📌When to use :
+                         ✅️When we want to separate out null values to end and data towards the beginning of the list or vice-versa.
+
+                         💎Example:
+                          👇
+
+                         List<String> list = Arrays
+                         .asList("Banana", null, "Apple", "Mango");
+                          list.sort(Comparator
+                          .nullsFirst(Comparator
+                          .naturalOrder()));
+
+
+                          System.out.println(list);
+
+                         🟣👉Output: [null, Apple, Banana, Mango]

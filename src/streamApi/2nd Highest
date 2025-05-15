@@ -1,0 +1,24 @@
+Q)write a Java stream program to Find 2nd Highest Salary ❓️
+
+🌳Ans) let's break it down.
+
+✅️step 1) convert the list to stream.
+
+✅️step 2) call mapToDouble () to get salary
+
+✅️step3) call sorted () for descending order.
+
+✅️step 4) call skip(1) to skip first salary.
+
+✅️step 5) call findFirst () to get the 2nd highest salary.
+
+🗳Example:
+👇
+
+OptionalDouble secondHighest = employees.stream()
+ .mapToDouble(e -> e.salary)
+ .distinct()
+ .boxed()
+ .sorted((a, b) -> Double.compare(b, a)) // Descending order
+ .skip(1) // Skip the highest
+ .findFirst();

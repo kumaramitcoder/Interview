@@ -1,0 +1,19 @@
+Q)write a Java stream program that convert Employee List to a Map with Name as Key ?
+
+🌳Ans) let's break it down.
+
+✅️step 1) convert the list to stream.
+
+✅️step 2) call Collectors.toMap () with employees name as key and salary as value.
+
+✅️step 3) print the result
+
+🗳Example:
+👇
+
+Map<String, Double> employeeMap = employees
+ .stream()
+ .collect(Collectors
+ .toMap(e -> e.name, e -> e.salary));
+
+System.out.print(employeeMap);

@@ -1,0 +1,150 @@
+Q1)How is microservices architecture different from monolithic architecture?
+
+2Q)What are the main benefits of using microservices?
+
+3Q)What challenges might occur when implementing microservices?
+
+4Q)How do microservices communicate?
+
+5Q)What is an API Gateway?
+
+6Q)What are some common patterns in microservices?
+
+7Q)What is the Circuit Breaker pattern?
+
+8Q)What is service discovery?
+
+9Q)Which tools are used for service discovery?
+
+10Q)What role does Docker play in microservices?
+
+11Q)How does Kubernetes help manage microservices?
+
+12Q)What is a service mesh?
+
+13Q)Explain the Database Per Service pattern?
+
+14Q)What is eventual consistency?
+
+15Q)How do microservices share data?
+
+16Q)What are the core design principles of microservices?
+
+17Q)How are microservices secured?
+
+18Q)What is a distributed transaction?
+
+19Q)What is the Saga pattern?
+
+20Q)How do you monitor microservices in production?
+
+21Q)What is the role of logging?
+
+22Q)How is fault tolerance ensured?
+
+23Q)What is service orchestration?
+
+24Q)What is service choreography?
+
+
+Scenario 1: Zero-Downtime Deployments for Microservices
+
+❓️1Q)Your team wants to deploy a new version of the Order Service without downtime. How do you achieve this?
+
+✅️Solution:
+
+🔹️Use Blue-Green Deployment or Canary Releases.
+
+🔹️Implement Feature Flags to enable gradual rollout.
+
+🌴Example:
+👇
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: order-service-green
+spec:
+ replicas: 3
+ selector:
+ matchLabels:
+ app: order-service
+
+
+🔹 Key Concepts: Kubernetes, Canary Deployments, Feature Flags.
+
+
+❓️2Q)Your API Gateway is overloaded due to high traffic. Some users make too many requests, affecting others. How do you prevent abuse?
+
+✅️Solution:
+
+🔹️Implement Rate Limiting (Token Bucket, Leaky Bucket).
+
+🔹️Use API Gateway Security Features (JWT, OAuth).
+
+🌴Example :
+👇
+@Bean
+public KeyResolver userKeyResolver() {
+ return exchange -> Mono.just(exchange.getRequest().getHeaders().getFirst("X-User-Id"));
+}
+
+🔹 Key Concepts: Rate Limiting, API Gateway (Spring Cloud Gateway, Nginx), Security.
+
+🟣Scenario 3: Handling 502 Bad Gateway Errors in Production
+
+❓️Q3)Your microservices are running on AWS ECS. Randomly, some API calls fail with 502 Bad Gateway. There are no clear error logs. How do you debug this?
+
+✅️Solution:
+
+🔹️Monitor API latency and service health metrics (New Relic, Prometheus).
+
+🔹️Check load balancer logs for connection timeouts or container crashes.
+
+🔹️Implement retry mechanisms on transient failures.
+
+http:
+ retries:
+ attempts: 3
+ perTryTimeout: 2s
+
+🔹 Key Concepts: AWS ECS, Load Balancer Debugging, Logging, New Relic.
+
+
+❓️Q4)Your system receives millions of read requests per second. Database reads are slowing down. How do you optimize it?
+
+✅️Solution:
+
+🔹️Implement CQRS (Command Query Responsibility Segregation).
+
+🔹️Use a Read Replica Database or ElasticSearch for queries.
+
+🌴Example:
+👇
+@Query("SELECT * FROM product_read WHERE category = ?1")
+List<Product> findByCategory(String category);
+
+🔹 Key Concepts: CQRS, Read Replicas, ElasticSearch, NoSQL.
+
+❓️Q5)Your Order Service emits an order_created event. The Payment Service and Inventory Service consume this event asynchronously. How do you ensure they process the event exactly once?
+
+✅️Solution:
+
+🔹️Implement Event Sourcing (Kafka, Debezium).
+
+🔹️Use Idempotency Keys to prevent duplicate processing.
+
+🔹️Maintain Event Logs for Retry.
+
+🌴Example:
+👇
+@KafkaListener(topics = "order_created")
+public void processEvent(String message) {
+ if (!isDuplicate(message)) {
+ saveEvent(message);
+ }
+}
+
+🔹 Key Concepts: Event Sourcing, Kafka, Exactly-Once Semantics.
+
+
+=============================================================================

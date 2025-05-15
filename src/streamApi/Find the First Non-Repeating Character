@@ -1,0 +1,35 @@
+Q)write a Java stream program to Find the First Non-Repeating Character in the below String?
+
+🔆Ans)let's break it down
+
+✅️step 1) convert the strings to chars array
+
+✅️step 2) call mapToObj () to convert to char obj .
+
+✅️step 3) call Collectors.groupingBy () to get chars and its count in a Map.
+
+✅️step 4) call entrySet () and stream() tobget the map into stream.
+
+✅️step 5) call filter() with getValue ()==1 to get the 1st occurrence.
+
+✅️step 6)call map to get the char which is having 1 occurrence and call findFirst() to get the first occurrence char
+
+❌️❓️String input = "Java articles are awesome";
+
+🌳👉Expected Output: 'J'
+
+🗳Example:
+👇
+
+ Character result = input.chars()
+ .mapToObj(c -> (char) c)
+ .collect(Collectors
+ .groupingBy(Function.identity(), LinkedHashMap::new, Collectors
+ .counting()))
+
+ .entrySet()
+ .stream()
+ .filter(e -> e.getValue() == 1)
+ .map(Map.Entry::getKey)
+ .findFirst()
+ .orElse(null);

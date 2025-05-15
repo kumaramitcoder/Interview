@@ -1,0 +1,27 @@
+Q)write a Java stream program to Find the Sum of Transaction Amounts for Each Day ❓️
+
+🌴Ans) let's break it down.
+
+💎step 1) convert the list to stream.
+
+💎step 2) call Collectors.groupingBy () with Transaction date and Transaction Amount as parameters
+
+💎step 3) print the result.
+
+✅️Example:
+👇
+
+Map<String, Integer> sumByDay = transactions
+ .stream()
+ .collect(Collectors
+ .groupingBy(Transaction::getDate,
+ Collectors
+ .summingInt(Transaction::getAmount)));
+
+
+
+✅️ Output: {
+
+2022-01-01=300,
+2022-01-02=700,
+2022-01-03=500}

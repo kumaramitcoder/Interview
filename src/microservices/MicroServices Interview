@@ -1,0 +1,24 @@
+Java Microservices Interview Questions
+============================================
+What is a Micro Services? Explain advantages of it by comparing Monolithic architecture?
+What is the SAGA design pattern?
+Explain a Micro Service created in your project?
+What are the design patterns in Microservices?
+What is an API Gateway?
+What is a circuit breaker and explain its each state?
+What is Event Driven Architecture?
+Steps to implement  RabbitMQ/Kafka?
+What are the points that need to be considered while designing or migrating towards a Microservices architecture?
+What is Kubernetes?
+What are pods in Kubernetes?
+What is Docker?
+Explain how to create a docker image?
+What is serverless deployment?
+What protocols are used to communicate between two spring boot services?
+What is idempotent in Microservices?
+How to achieve asynchronous communication in a Microservice?
+How to implement spring cloud in java spring boot?
+Which library in Java spring boot is used to implement Circuit breaker?
+What is service discovery and service registry?
+Explain about API gateway and how it is implemented in your project?
+Can we connect Multiple databases in a Microservices? If yes, how?

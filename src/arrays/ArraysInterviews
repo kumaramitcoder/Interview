@@ -1,0 +1,84 @@
+    1. Find the Largest Element in an Array
+    2. Find the Second largest element
+    3. Reverse in an array
+    4. Check if Array is sorted or not
+    5. Remove Duplicates from a sorted array
+    6. Rotate an array by K Positions
+    7. Find the missing number in an array (1 to N)
+    8. Move all zero to the end of an Array
+    9. Find the Union of Two Arrays
+    10. Find the Intersection of Two Arrays
+    11. Maximum Subarray sum (Kandne's Algorithm)
+    12. Maximum Product Subarray
+    13. Count frequency of elements in an array
+    14. Find the First Repeating element in an array
+    15. Find the First Non-Repeating element in an array
+    16. Find the element
+
+
+    #Arrays
+    =============
+    1. Find common elements between two arrays
+    2. Find first and last element of Arraylist
+    3. Sort an array without using in-built method
+    4. Remove duplicates from an Array
+    5. Remove duplicates from an ArrayList
+    6. Find the missing number in an Array
+    7. Find the largest and smallest element in an Array
+    8. Search element in an Array
+    9. Array consists of integers and special characters,sum only
+    integers
+    10. Find Minimum and Maximum from an Array
+    11. Java program to count Odd and Even number from given
+    array Input: {1,2,3,4,5,6,7,8,9}
+    12. Java program - input array was given [1,1,2,2,3,4,5,5,6,6],
+    Output - [3,4]
+
+    ===================================
+
+    1. Remove Consecutive Duplicates from Sorted Array
+    2. Remove All Adjacent Duplicates Recursively
+    3. Remove Element (All Occurrences of val)
+    4. Move Zeroes to End
+    5. Find All Duplicates in an Array
+    6. Maximum Consecutive Ones
+    7. Merge Sorted Arrays (In-Place)
+    8. First Missing Positive Integer
+    9. Longest Turbulent Subarray
+    10.Rotate Array
+
+    Array
+   ===================================
+    Q1: Write a java program to find duplicate elements in an array?
+    Q2: Write a java program to find second largest element in an array
+    of integers?
+    Q3: Maximum consecutive one’s (or zeros) in a binary array?
+    Q4: Write a java program to find all pairs of elements in an integer
+    array whose sum is equal to a given number?
+    Q5: Write a java program to find continuous sub array whose sum is
+    equal to a given number?
+    Q6: Write a java program to find the intersection of two arrays?
+    Q7: Write a java program to find a missing number in an integer
+    array?
+    Q8: Write a java program to count occurrences of each element in an
+    array?
+    Q9: Find a rotation with maximum hamming distance?
+    Q10: Count Distinct element in every k size window
+
+
+
+    ______________________________________________________________
+
+    Strategies for Interview
+
+    1. Clarify the question
+    2. Spell out the brute-force solution
+    3. Try to find patterns
+    4. Test for comer cases
+    5. Know your interviewers & the company
+
+    Other advice
+
+    • Don’t Be honest always
+    • Keep a positive spirit
+    • Be aware of your body language

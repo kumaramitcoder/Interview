@@ -1,0 +1,67 @@
+1Q)Find the non-repeating largest number from the given array {1, 2, 3, 4, 5, 0, 5, 8,3}
+
+2Q)Difference Between ArrayList and LinkedList in Java?
+
+3)Explain the Internal Working of HashMap in Java?
+
+4)Explain ConcurrentModificationException in Java?
+
+5)Explain Queue and Stack in Java?
+
+6)Explain the difference Between Spring Framework and Spring Boot?
+
+7)Explain the difference Between Monolithic and Microservices Architecture?
+
+8)Finding the First Repeating Character in a String Using Java 8 Streams?
+
+9)Can we use abstract and final in a class together in Java?
+
+10)What is immutability in Java? why the string class is immutable? what are other immutable classes in Java?
+
+11)The number of ways to create a String in Java? what will happen when you call the intern() method on a string?
+
+12)What difference between ClassNotFoundException & NoClassDefFoundError in Java?
+
+Q)Explain ConcurrentModificationException in Java
+
+✅️Ans)
+
+The ConcurrentModificationException occurs when a collection is modified while being iterated using an iterator or enhanced for-loop.
+
+❓️When Does It Happen?
+
+❌️It happens when:
+
+You modify a collection (like ArrayList, HashMap) while iterating over it using an iterator.
+
+🧶You modify a collection (like ArrayList, HashMap) while iterating over it using an iterator.
+
+🧶The iterator detects the structural modification and throws ConcurrentModificationException.
+
+🗳Example:
+👇
+List<String> list = new ArrayList<>();
+ list.add("A");
+ list.add("B");
+ list.add("C");
+ // Iterating using for-each loop
+ for (String s : list) {
+ if (s.equals("B")) {
+ list.remove(s); // Throws ConcurrentModificationException
+ }
+ }
+
+❌️Why Does This Fail?
+
+🔹️The for-each loop uses an Iterator internally.
+
+🔹️The remove(s) modifies the list while iterating.
+
+🔹️The Iterator detects this modification and throws ConcurrentModificationException.
+
+❌️How to Avoid ConcurrentModificationException?
+
+✅ Method 1: Use Iterator.remove()
+✅️ Method 2: UseCopyOnWriteArrayList (Thread-Safe)
+✅ Method 3 :Iterate backward to avoid shifting issues.
+✅Method 4:Use ConcurrentHashMap for safe concurrent operations.

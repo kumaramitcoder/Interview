@@ -1,0 +1,33 @@
+Q) Given a list of lists of integers, flatten the lists, remove duplicates, sort in descending order, and find the square of each distinct value using stream API?
+
+🌴Ans) let's break it down.
+
+✅️step 1) convert the list to stream.
+
+✅️Step 2) call flatMap() to Flatten the list.
+
+✅️step 3) call distinct() to get distinct.
+
+✅️step 4)call sorted() with Comparator.reverseOrder for reverse.
+
+✅️step 5) call map() num-> num*num for square.
+
+🔹️Example:
+👇
+
+List<List<Integer>> nestedLists = Arrays.asList(
+ Arrays.asList(1, 2, 3),
+ Arrays.asList(3, 4, 5),
+ Arrays.asList(5, 6, 7)
+ );
+
+
+ List<Integer> result = nestedLists
+ .stream()
+ .flatMap(List::stream)
+ .distinct()
+ .sorted(Comparator.reverseOrder())
+ .map(num -> num * num)
+ .collect(Collectors.toList());
+
+ System.out.println("Result: " + result);

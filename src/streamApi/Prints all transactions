@@ -1,0 +1,22 @@
+Q)Write a Java stream program to Prints all transactions’ values from the traders living in Bangalore?
+
+🌳Ans) let's break it down.
+
+✅️step 1) convert the list to stream.
+
+✅️step 2) call filter () with traders city Bangalore.
+
+✅️step 3) call map() with Transaction.getValue .
+
+✅️step 4) print the result.
+
+🌳Example:
+👇
+
+transactions
+ .stream()
+ .filter(t -> "Bangalore"
+ .equals(t.getTrader().getCity()))
+ .map(Transaction::getValue)
+ .forEach(System.out::println);
+

@@ -1,0 +1,36 @@
+Q)Wtrite a java stream program to Find the highest occurrence of a word in a text file using Streams❓️
+Step 1) Read all lines from the file into a single string.
+
+✅️Step 2) Process the content using streams.
+
+✅️Step 3) Remove punctuation and Split into words.
+
+✅️Step 4) call Collectors.groupingBy () to capture words and their counts in a Map.
+
+✅️Step 5) call max() with Entry.comparingByValue () to get the most frequent word.
+
+ String content = Files
+ .readString(Paths.get("input.txt"));
+
+
+ Map<String, Long> wordCounts = Arrays
+ .stream(content
+ .toLowerCase()
+ .replaceAll("[^a-zA-Z ]", "")
+ .split("\\s+"))
+ .filter(word -> !word.isEmpty())
+ .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+
+Optional<Map.Entry<String, Long>> maxEntry = wordCounts
+ .entrySet()
+ .stream()
+ .max(Map.Entry.comparingByValue());
+
+ // Print the result
+ maxEntry
+ .ifPresent(entry -> {
+ System.out.println("Most frequent word: " + entry.getKey());
+
+System.out.println("Frequency: " + entry.getValue());
+ });

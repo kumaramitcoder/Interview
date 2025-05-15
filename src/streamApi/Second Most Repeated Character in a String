@@ -1,0 +1,31 @@
+Q)Find the Second Most Repeated Character in a String Using Java Streams?
+
+🌴Ans) let's break it down. 
+
+👉String input = "successes"
+
+👉Output: "c" ;
+
+step 1) Counting Character Frequencies
+
+step 2) Finding the Second Most Repeated Character using map 
+
+✅️step 1>
+👇
+Map<Character, Long> charCount = input
+ .chars() 
+ .mapToObj(ch -> (char) ch)
+ .collect(Collectors
+ .groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
+
+✅️step 2> Descending order of frequency to get and then Skip the most frequent character with skip() and then call findFirst () to Get the second most frequent character.👇
+
+
+Character secondMost = charCount.entrySet()
+ .stream()
+ .sorted((e1, e2) -> e2.getValue()
+ .compareTo(e1.getValue())) 
+ .skip(1) 
+ .findFirst() 
+ .map(Map.Entry::getKey)
+ .orElse(null);
